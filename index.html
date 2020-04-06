@@ -96,11 +96,12 @@
             transition: 0.5s;
         }
 
-        .navbatColor {
+        .navbarColor {
             background: #b4acc9;
             transition: 0.5s;
             /* transform: translate3d(0px, 40px, 0px); */
         }
+
         .navbar-brand {
             color: #000;
         }
@@ -141,6 +142,7 @@
             height: 120px;
             width: 120px;
             box-shadow: none;
+            filter: grayscale(1);
         }
 
         .section {
@@ -149,7 +151,7 @@
         }
 
         .projectSection {
-            background: #05122a;
+            background: linear-gradient(180deg, #01070b, #162d5d);
         }
 
         .projectSection h1,
@@ -176,6 +178,7 @@
         }
 
         .cardStack {
+            position: relative;
             max-width: 12% !important;
             perspective: 900px;
             transform: translate(0px, 160px);
@@ -185,31 +188,66 @@
         .projectZone {
             padding: 80px 0px 0px 0px;
             width: 55%;
-    margin: 0 auto;
+            margin: 0 auto;
         }
-        .projectZone > .cardStack:nth-child(1) {
+
+        .projectZone>.cardStack:nth-child(1) {
             z-index: 4;
         }
 
-        .projectZone > .cardStack:nth-child(2) {
+        .projectZone>.cardStack:nth-child(2) {
             z-index: 3;
         }
 
-        .projectZone > .cardStack:nth-child(3) {
+        .projectZone>.cardStack:nth-child(3) {
             z-index: 2;
         }
 
-        .projectZone > .cardStack:nth-child(4) {
+        .projectZone>.cardStack:nth-child(4) {
             z-index: 1;
         }
 
         .cardStack:hover {
-            transform:translate(0px, 50px);
-            z-index: 10!important;
+            transform: translate(0px, 50px);
+            z-index: 10 !important;
         }
+
         .cardStack:hover .projectCard {
             transform: rotateX(0deg);
             box-shadow: 0px 0px 8px #00000024;
+            cursor: pointer;
+        }
+
+        .cardDescription {
+            transform: translate(0px, -80px) !important;
+            z-index: 10 !important;
+            cursor: pointer;
+        }
+
+        .cardDescription .projectCard {
+            transform: rotateX(0deg) !important;
+            box-shadow: 0px 0px 8px #00000024 !important;
+            width: 880px;
+        }
+
+        .closeIcon {
+            pointer-events: none;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 25px;
+            width: 25px;
+            cursor: pointer;
+        }
+
+        .contactSection {
+            background: linear-gradient(180deg, #8071aa, #ccabc5);
+        }
+
+        .cardSection {
+            margin: 0 auto;
+            max-width: 600px;
+            height: 350px;
         }
     </style>
 </head>
@@ -272,21 +310,41 @@
                 </div>
             </div>
             <div class="row projectZone">
-                <div class="col-lg-3 cardStack" id="pickCard1" onmouseover="pickCard(this.id);">
+                <div class="col-lg-3 cardStack" id="pickCard1" onclick="pickCard(this.id);">
                     <div class="projectCard"></div>
                 </div>
-                <div class="col-lg-3 cardStack">
+                <div class="col-lg-3 cardStack" id="pickCard2" onclick="pickCard(this.id);">
                     <div class="projectCard"></div>
                 </div>
-                <div class="col-lg-3 cardStack">
+                <div class="col-lg-3 cardStack" id="pickCard3" onclick="pickCard(this.id);">
                     <div class="projectCard"></div>
                 </div>
-                <div class="col-lg-3 cardStack">
+                <div class="col-lg-3 cardStack" id="pickCard4" onclick="pickCard(this.id);">
                     <div class="projectCard"></div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- <div class="section skillSection">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center title">
+                        My skills
+                        <br>
+                        <small class="description">
+                            My fundamentals.
+                        </small>
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="padding: 200px 0; text-align: center;">
+                    Form comes here
+                </div>
+            </div>
+        </div>
+    </div> -->
     <div class="section contactSection">
         <div class="container-fluid">
             <div class="row">
@@ -301,9 +359,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12" style="padding: 200px 0; text-align: center;">
-                Form comes here
-            </div>
+                <div class="container" style="padding: 200px 0; text-align: center;">
+                    <div class="card cardSection">
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -313,23 +373,32 @@
     function navbarColor() {
         $(window).scroll(function() {
             // console.log($(this).scrollTop());
-            var scrollCount = $(this).scrollTop();
+            var scrollCount = $(this).scrollTop() + 1;
             if ($(this).scrollTop() > 670) {
-                document.getElementById('navbar').classList.add('navbatColor');
+                document.getElementById('navbar').classList.add('navbarColor');
                 document.getElementById('profilePic').classList.add('pictureLocate');
             } else {
-                document.getElementById('navbar').classList.remove('navbatColor');
+                document.getElementById('navbar').classList.remove('navbarColor');
                 document.getElementById('profilePic').classList.remove('pictureLocate');
-            }            
+            }
             document.getElementById('titleName').style.transform = "translate3d(0px, " + scrollCount +
                 "px, 0px)";
-            document.getElementById('profilePic').style.filter = "hue-rotate(" + scrollCount + "deg)";
         });
     }
 
-    // function pickCard(id) {
-    //     document.getElementById(id).classList.add('pullCard');        
-    // }
+    function pickCard(id) {
+        document.getElementById(id).classList.add('cardDescription');
+        document.getElementById(id).setAttribute('onclick', 'closeCard(this.id)');
+        document.getElementById(id).children[0].innerHTML =
+            '<span class="closeIcon" style="position:absolute;right:10px;top:10px;font-size: 25px;width: 25px;cursor:pointer;" onclick="closeCard(\'' +
+            id + '\');">x</span>';
+    }
+
+    function closeCard(id) {
+        document.getElementById(id).classList.remove('cardDescription');
+        document.getElementById(id).setAttribute("onclick", "pickCard(this.id)");
+        document.getElementById(id).children[0].innerHTML = "";
+    }
 </script>
 
 </html>
