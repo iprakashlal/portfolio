@@ -241,13 +241,82 @@
         }
 
         .contactSection {
-            background: linear-gradient(180deg, #8071aa, #ccabc5);
+            background: linear-gradient(180deg, #8d8c90, #f6f5f7);
         }
 
         .cardSection {
             margin: 0 auto;
             max-width: 600px;
-            height: 350px;
+            height: 400px;
+            width: 350px;
+            background-clip: unset;
+            border: 0;
+            background: #f8f0ee;
+            box-shadow: 0px 0px 170px #b7b6b6;
+        }
+
+        .cardZone {
+            padding: 120px 0px 120px 0px;
+        }
+
+        .cardNameZone {
+            width: 100%;
+            font-size: 35px;
+            text-align: center;
+            padding: 70px 0;
+            background: #0a193e;
+            color: #fff;
+            position: relative;
+        }
+
+        .cardNameZone::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 175px solid transparent;
+            border-right: 175px solid transparent;
+            border-bottom: 50px solid #0a193e;
+            position: absolute;
+            top: -50px;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+        }
+
+        .cardNameZone:before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 175px solid transparent;
+            border-right: 175px solid transparent;
+            border-bottom: 60px solid #8184a9;
+            position: absolute;
+            top: -60px;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+        }
+
+        .cardContentZone {
+            width: 100%;
+            text-align: center;
+            padding: 50px 0px 0px 0px;
+            letter-spacing: 1px;
+            height: 210px;
+        }
+
+        .cardSection::before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 175px solid transparent;
+            border-right: 175px solid transparent;
+            border-bottom: 60px solid #f8f0ee;
+            position: absolute;
+            top: -60px;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
         }
     </style>
 </head>
@@ -359,9 +428,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="container" style="padding: 200px 0; text-align: center;">
+                <div class="container cardZone">
                     <div class="card cardSection">
-
+                        <div class="cardContentZone">
+                            <h6><a href="mailto:">prakashlal@live.com</a></h6>
+                        </div>
+                        <div class="cardNameZone">
+                            Nikhil Kamath
+                        </div>
                     </div>
                 </div>
             </div>
