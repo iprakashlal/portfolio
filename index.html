@@ -116,6 +116,8 @@
             bottom: 150px;
             z-index: 1040;
             pointer-events: none;
+            top: 70vh;
+            transition: 1s;
         }
 
         .imageHolder {
@@ -133,8 +135,9 @@
 
         .pictureLocate {
             transition: 0.5s;
-            position: fixed;
+            /* position: fixed; */
             top: 0px;
+            transition: 1s;
         }
 
         .pictureLocate .imageHolder {
@@ -146,16 +149,15 @@
         }
 
         .section {
-            padding: 200px 0px 0px 0px;
+            padding: 60px 0px 0px 0px;
             overflow: hidden;
         }
 
-        .projectSection {
-            background: linear-gradient(180deg, #01070b, #162d5d);
+        body {
+            overflow: hidden;
         }
 
-        .projectSection h1,
-        .projectSection h2,
+
         .projectSection h5,
         .projectSection small,
         .projectSection p {
@@ -186,7 +188,7 @@
         }
 
         .projectZone {
-            padding: 80px 0px 0px 0px;
+            padding: 20px 0px 0px 0px;
             width: 55%;
             margin: 0 auto;
         }
@@ -240,9 +242,7 @@
             cursor: pointer;
         }
 
-        .contactSection {
-            background: linear-gradient(180deg, #8d8c90, #f6f5f7);
-        }
+
 
         .cardSection {
             margin: 0 auto;
@@ -252,7 +252,7 @@
             background-clip: unset;
             border: 0;
             background: #f8f0ee;
-            box-shadow: 0px 0px 170px #b7b6b6;
+            box-shadow: 0px 0px 10px #00000078;
         }
 
         .cardZone {
@@ -318,12 +318,133 @@
             left: 0;
             right: 0;
         }
+
+        .projectSection,
+        .skillSection,
+        .contactSection {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            transition: 1s;
+            margin-top: 94vh;
+            padding-left: 30px;
+            padding-right: 30px;
+            pointer-events: none !important;
+        }
+
+        .projectSection .container-fluid {
+            background: linear-gradient(180deg, #01070b, #162d5d);
+            height: 100%;
+            border-radius: 20px 20px 0px 0px;
+        }
+
+
+        .skillSection .container-fluid {
+            background: linear-gradient(180deg, #2bb3dd, #43d0fb);
+            height: 100%;
+            border-radius: 20px 20px 0px 0px;
+        }
+
+        .contactSection .container-fluid {
+            background: linear-gradient(180deg, #00bdbd, #5ed8d6);
+            height: 100%;
+            border-radius: 20px 20px 0px 0px;
+        }
+
+        .customTitle {
+            font-size: 5em;
+            color: #ffffff29;
+            left: 0;
+            font-weight: 700;
+            /* border-left: 10px solid #ffffff36;
+            padding-left: 20px; */
+        }
+
+        svg.circle-meter {
+            margin: 0 10px;
+        }
+
+        svg.circle-meter circle {
+            stroke-width: 10px;
+        }
+
+        svg.circle-meter circle.front {
+            stroke: mediumpurple;
+            fill: transparent;
+            stroke-dasharray: 251;
+            stroke-dashoffset: 251;
+            -webkit-transition: stroke-dashoffset 1s cubic-bezier(0.085, 0.805, 0.215, 0.935);
+            transition: stroke-dashoffset 1s cubic-bezier(0.085, 0.805, 0.215, 0.935);
+        }
+
+        svg.circle-meter circle.back {
+            stroke: #f1f1f1;
+            fill: transparent;
+        }
+
+        .heroSection {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .projectSection:before {
+            left: 60px;
+        }
+
+        .skillSection:before {
+            left: 270px;
+        }
+
+        .contactSection:before {
+            left: 480px;
+        }
+
+        .projectSection:before,
+        .skillSection:before,
+        .contactSection:before {
+            content: "";
+            height: 60px;
+            width: 200px;
+            background: grey;
+            position: absolute;
+            top: 0px;
+            /* left: 60px; */
+            border-radius: 10px 10px 0px 0px;
+            cursor: pointer;
+            pointer-events: all !important;
+        }
+
+        .openFiles .projectSection,
+        .openFiles .skillSection,
+        .openFiles .contactSection {
+            margin-top: 10vh;
+            /* pointer-events: all!important; */
+        }
+
+        .projectSection .container-fluid,
+        .skillSection .container-fluid,
+        .contactSection .container-fluid {
+            visibility: hidden;
+        }
     </style>
 </head>
 
-<body onscroll="navbarColor()">
+<body id="masterID" class="">
     <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" id="navbar">
         <div class="container-fluid">
+            <div class="pictureZone" id="profilePic">
+                <div class="imageHolder">
+
+                </div>
+            </div>
             <div class="navbar-translate">
                 <a class="navbar-brand" href="#">
                     NIKHIL KAMATH
@@ -345,36 +466,13 @@
             </div>
         </div>
     </nav>
-    <div class="wrapper">
-        <div class="page-header clear-filter" id="heroSection">
-            <div class="skyZone">
-                <div class="skyZoneImg">
 
-                </div>
-            </div>
-            <div class="cityZone">
-                <div class="cityZoneImg">
-
-                </div>
-            </div>
-            <div class="nameZone" id="titleName">NIKHIL KAMATH</div>
-            <div class="pictureZone" id="profilePic">
-                <div class="imageHolder">
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="section projectSection">
+    <div class="section projectSection" onclick="openTab(this.id);" id="nikhilProject">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="text-center title">
+                    <h1 class="text-left title customTitle">
                         My projects
-                        <br>
-                        <small class="description">
-                            Explore them...
-                        </small>
                     </h1>
                 </div>
             </div>
@@ -394,36 +492,32 @@
             </div>
         </div>
     </div>
-    <!-- <div class="section skillSection">
+    <div class="section skillSection" onclick="openTab(this.id);" id="nikhilSkill">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="text-center title">
+                    <h1 class="text-left title customTitle">
                         My skills
-                        <br>
-                        <small class="description">
-                            My fundamentals.
-                        </small>
                     </h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12" style="padding: 200px 0; text-align: center;">
-                    Form comes here
+                <div class="col-lg-12">
+                    <svg class="circle-meter" width="150" height="150" viewbox="0, 0, 90, 90">
+                        <circle class="back" cx="45" cy="45" r="40"></circle>
+                        <circle class="front" style="stroke-dashoffset:90;" cx="45" cy="45" r="40"></circle>
+                    </svg>
+
                 </div>
             </div>
         </div>
-    </div> -->
-    <div class="section contactSection">
+    </div>
+    <div class="section contactSection" onclick="openTab(this.id);" id="nikhilContact">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="text-center title">
+                    <h1 class="text-left title customTitle">
                         Contact me
-                        <br>
-                        <small class="description">
-                            Know me more...
-                        </small>
                     </h1>
                 </div>
             </div>
@@ -441,25 +535,41 @@
             </div>
         </div>
     </div>
+    <div class="wrapper heroSection">
+        <div class="page-header clear-filter" id="heroSection">
+            <div class="skyZone">
+                <div class="skyZoneImg">
+
+                </div>
+            </div>
+            <div class="cityZone">
+                <div class="cityZoneImg">
+
+                </div>
+            </div>
+            <div class="nameZone" id="titleName">NIKHIL KAMATH</div>
+
+        </div>
+    </div>
+
 </body>
 
 <script>
-    function navbarColor() {
-        $(window).scroll(function() {
-            // console.log($(this).scrollTop());
-            var scrollCount = $(this).scrollTop() + 1;
-            if ($(this).scrollTop() > 670) {
-                document.getElementById('navbar').classList.add('navbarColor');
-                document.getElementById('profilePic').classList.add('pictureLocate');
-            } else {
-                document.getElementById('navbar').classList.remove('navbarColor');
-                document.getElementById('profilePic').classList.remove('pictureLocate');
-            }
-            document.getElementById('titleName').style.transform = "translate3d(0px, " + scrollCount +
-                "px, 0px)";
-        });
-    }
-
+    // function navbarColor() {
+    //     $(window).scroll(function() {
+    // console.log($(this).scrollTop());
+    // var scrollCount = $(this).scrollTop() + 1;
+    // if ($(this).scrollTop() > 670) {
+    //     document.getElementById('navbar').classList.add('navbarColor');
+    //     document.getElementById('profilePic').classList.add('pictureLocate');
+    // } else {
+    //     document.getElementById('navbar').classList.remove('navbarColor');
+    //     document.getElementById('profilePic').classList.remove('pictureLocate');
+    // }
+    // document.getElementById('titleName').style.transform = "translate3d(0px, " + scrollCount +
+    //     "px, 0px)";
+    //     });
+    // }
     function pickCard(id) {
         document.getElementById(id).classList.add('cardDescription');
         document.getElementById(id).setAttribute('onclick', 'closeCard(this.id)');
@@ -472,6 +582,26 @@
         document.getElementById(id).classList.remove('cardDescription');
         document.getElementById(id).setAttribute("onclick", "pickCard(this.id)");
         document.getElementById(id).children[0].innerHTML = "";
+    }
+
+    function openTab(id) {
+        document.getElementById('profilePic').classList.add('pictureLocate');
+        document.getElementById('navbar').classList.add('navbarColor');
+        document.getElementById('titleName').style.transform = "translate3d(0px, 300px, 0px)";
+        if (id == "nikhilProject" || id == "nikhilSkill" || id == "nikhilContact") {
+            document.getElementById('masterID').classList.add('openFiles');
+            document.getElementById(id).children[0].style.visibility = "visible";
+            if (id == "nikhilProject") {
+                document.getElementById('nikhilSkill').children[0].style.visibility = "hidden";
+                document.getElementById('nikhilContact').children[0].style.visibility = "hidden";
+            } else if (id == "nikhilSkill") {
+                document.getElementById('nikhilProject').children[0].style.visibility = "hidden";
+                document.getElementById('nikhilContact').children[0].style.visibility = "hidden";
+            } else if (id == "nikhilContact") {
+                document.getElementById('nikhilProject').children[0].style.visibility = "hidden";
+                document.getElementById('nikhilSkill').children[0].style.visibility = "hidden";
+            }
+        }
     }
 </script>
 
