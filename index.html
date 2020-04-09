@@ -18,8 +18,13 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
     <style>
+        @font-face {
+            font-family: Quicksand;
+            src: url(quicksand.ttf);
+        }
+
         * {
-            font-family: Open sans !important;
+            font-family: Quicksand !important;
             transition: 0.4s;
         }
 
@@ -74,14 +79,14 @@
 
         .nameZone {
             position: relative;
-            font-family: Verdana;
             font-size: 9em;
+            font-weight: bold;
             margin: 15% auto;
             width: max-content;
             z-index: -1;
             text-align: center;
             transition: 1s;
-            background: linear-gradient(to bottom, #FFFFFF 35%, #c38775 100%);
+            background: linear-gradient(to bottom, #FFFFFF 35%, #008989 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -504,9 +509,9 @@
 
         .customLabel {
             text-align: center;
-            border-top: 1px solid #737883;
+            border-top: 1px solid #0faeae;
             padding: 5px 0px;
-            margin: 5px 0px;
+            margin: 10px 0px;
         }
 
         .customLabel h5 {
@@ -529,9 +534,7 @@
     <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" id="navbar">
         <div class="container-fluid">
             <div class="pictureZone" id="profilePic">
-                <div class="imageHolder">
-
-                </div>
+                <div class="imageHolder"></div>
             </div>
             <div class="navbar-translate">
                 <a class="navbar-brand" href="#">
@@ -565,34 +568,7 @@
                     </h1>
                 </div>
             </div>
-            <div class="row projectZone container">
-                <div class="col-lg-3 cardStack" id="pickCard1" onclick="pickCard(this.id);">
-                    <div class="projectCard"></div>
-                </div>
-                <div class="col-lg-3 cardStack" id="pickCard2" onclick="pickCard(this.id);">
-                    <div class="projectCard"></div>
-                </div>
-                <div class="col-lg-3 cardStack" id="pickCard3" onclick="pickCard(this.id);">
-                    <div class="projectCard"></div>
-                </div>
-                <div class="col-lg-3 cardStack" id="pickCard4" onclick="pickCard(this.id);">
-                    <div class="projectCard"></div>
-                </div>
-            </div>
-            <div class="row projectZone container">
-                <div class="col-lg-3 cardStack" id="pickCard1" onclick="pickCard(this.id);">
-                    <div class="projectCard"></div>
-                </div>
-                <div class="col-lg-3 cardStack" id="pickCard2" onclick="pickCard(this.id);">
-                    <div class="projectCard"></div>
-                </div>
-                <div class="col-lg-3 cardStack" id="pickCard3" onclick="pickCard(this.id);">
-                    <div class="projectCard"></div>
-                </div>
-                <div class="col-lg-3 cardStack" id="pickCard4" onclick="pickCard(this.id);">
-                    <div class="projectCard"></div>
-                </div>
-            </div>
+            <div class="row projectZone container" id="projectContentZone"> </div>
         </div>
     </div>
     <div class="section skillSection" onclick="openTab(this.id);" id="nikhilSkill">
@@ -605,64 +581,7 @@
                 </div>
             </div>
 
-            <div class="row container">
-                <div class="col-lg-4 skillStackZone"> <svg class="circle-meter" width="100%" height="160"
-                        viewbox="0, 0, 90, 95">
-                        <circle class="back" cx="46" cy="46" r="39"></circle>
-                        <circle class="front" style="stroke-dashoffset:90;" cx="46" cy="46" r="41"></circle>
-                    </svg>
-                    <div class="customLabel">
-                        <h5>Skill 1</h5>
-                    </div>
-                </div>
-                <div class="col-lg-4 skillStackZone"> <svg class="circle-meter" width="100%" height="160"
-                        viewbox="0, 0, 90, 95">
-                        <circle class="back" cx="46" cy="46" r="39"></circle>
-                        <circle class="front" style="stroke-dashoffset:90;" cx="46" cy="46" r="41"></circle>
-                    </svg>
-                    <div class="customLabel">
-                        <h5>Skill 1</h5>
-                    </div>
-                </div>
-                <div class="col-lg-4 skillStackZone"> <svg class="circle-meter" width="100%" height="160"
-                        viewbox="0, 0, 90, 95">
-                        <circle class="back" cx="46" cy="46" r="39"></circle>
-                        <circle class="front" style="stroke-dashoffset:90;" cx="46" cy="46" r="41"></circle>
-                    </svg>
-                    <div class="customLabel">
-                        <h5>Skill 1</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="row container">
-                <div class="col-lg-4 skillStackZone"> <svg class="circle-meter" width="100%" height="160"
-                        viewbox="0, 0, 90, 95">
-                        <circle class="back" cx="46" cy="46" r="39"></circle>
-                        <circle class="front" style="stroke-dashoffset:90;" cx="46" cy="46" r="41"></circle>
-                    </svg>
-                    <div class="customLabel">
-                        <h5>Skill 1</h5>
-                    </div>
-                </div>
-                <div class="col-lg-4 skillStackZone"> <svg class="circle-meter" width="100%" height="160"
-                        viewbox="0, 0, 90, 95">
-                        <circle class="back" cx="46" cy="46" r="39"></circle>
-                        <circle class="front" style="stroke-dashoffset:90;" cx="46" cy="46" r="41"></circle>
-                    </svg>
-                    <div class="customLabel">
-                        <h5>Skill 1</h5>
-                    </div>
-                </div>
-                <div class="col-lg-4 skillStackZone"> <svg class="circle-meter" width="100%" height="160"
-                        viewbox="0, 0, 90, 95">
-                        <circle class="back" cx="46" cy="46" r="39"></circle>
-                        <circle class="front" style="stroke-dashoffset:90;" cx="46" cy="46" r="41"></circle>
-                    </svg>
-                    <div class="customLabel">
-                        <h5>Skill 1</h5>
-                    </div>
-                </div>
-            </div>
+            <div class="row container" id="skillContentZone"> </div>
         </div>
     </div>
     <div class="section contactSection" onclick="openTab(this.id);" id="nikhilContact">
@@ -691,38 +610,18 @@
     <div class="wrapper heroSection">
         <div class="page-header clear-filter" id="heroSection">
             <div class="skyZone">
-                <div class="skyZoneImg">
-
-                </div>
+                <div class="skyZoneImg"> </div>
             </div>
             <div class="cityZone">
-                <div class="cityZoneImg">
-
-                </div>
+                <div class="cityZoneImg"> </div>
             </div>
             <div class="nameZone" id="titleName">NIKHIL KAMATH</div>
-
         </div>
     </div>
 
 </body>
 
-<script>
-    // function navbarColor() {
-    //     $(window).scroll(function() {
-    // console.log($(this).scrollTop());
-    // var scrollCount = $(this).scrollTop() + 1;
-    // if ($(this).scrollTop() > 670) {
-    //     document.getElementById('navbar').classList.add('navbarColor');
-    //     document.getElementById('profilePic').classList.add('pictureLocate');
-    // } else {
-    //     document.getElementById('navbar').classList.remove('navbarColor');
-    //     document.getElementById('profilePic').classList.remove('pictureLocate');
-    // }
-    // document.getElementById('titleName').style.transform = "translate3d(0px, " + scrollCount +
-    //     "px, 0px)";
-    //     });
-    // }
+<script type="text/javascript">
     var flag = "1";
     var lastID;
 
@@ -756,6 +655,40 @@
                 document.getElementById(lastID).classList.remove('fileVisible')
             }, 1000);
         }
+    }
+    var skillInputs = [{
+            label: 'skill set',
+            idContainer: 'skillContentZone'
+        },
+        {
+            label: 'Key two'
+        }
+    ]
+    var projectInputs = [{
+            label: 'project set one',
+            idContainer: 'projectContentZone'
+        },
+        {
+            label: 'Key two'
+        }
+    ]
+    blockTiles(projectInputs);
+    blockTiles(skillInputs);
+
+    function blockTiles(contentSource) {
+        var allBlocks = "";
+        for (var i = 0; i < contentSource.length; i++) {
+            if (contentSource == projectInputs) {
+                allBlocks +=
+                    '<div class="col-lg-3 cardStack" id="pickCard1" onclick=""><div class="projectCard"></div><div class="customLabel"><h5>' +
+                    contentSource[i].label + '</h5></div></div>'
+            } else if (contentSource == skillInputs) {
+                allBlocks +=
+                    '<div class="col-lg-4 skillStackZone"> <svg class="circle-meter" width="100%" height="160" viewbox="0, 0, 90, 95"> <circle class="back" cx="46" cy="46" r="39"></circle> <circle class="front" style="stroke-dashoffset:90;" cx="46" cy="46" r="41"></circle> </svg><div class="customLabel"><h5>' +
+                    contentSource[i].label + '</h5></div></div>'
+            }
+        }
+        return document.getElementById(contentSource[0].idContainer).innerHTML = allBlocks;
     }
 </script>
 
