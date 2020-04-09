@@ -22,6 +22,7 @@
             font-family: Quicksand;
             src: url(quicksand.ttf);
         }
+
         @font-face {
             font-family: Open Sans;
             src: url(opensans.ttf);
@@ -82,7 +83,7 @@
         }
 
         .nameZone {
-            font-family: Open Sans!important;
+            font-family: Open Sans !important;
             position: relative;
             font-size: 9em;
             font-weight: bold;
@@ -189,7 +190,7 @@
 
         .projectCard {
             /* width: 300px; */
-            height: 250px;
+            height: 300px;
             margin: 0 auto;
             border-radius: 15px;
             box-shadow: 10px -10px 10px #00000024;
@@ -203,6 +204,7 @@
             perspective: 900px;
             transform: translate(0px, 160px);
             padding: 0px 85px; */
+            margin: 20px 0px;
         }
 
         .projectZone {
@@ -265,7 +267,7 @@
         .cardSection {
             margin: 0 auto;
             max-width: 600px;
-            height: 400px;
+            height: 270px;
             width: 350px;
             background-clip: unset;
             border: 0;
@@ -492,6 +494,7 @@
 
         svg.circle-meter {
             margin: 0 auto;
+            transition: 1s ease;
         }
 
         svg.circle-meter circle {
@@ -550,6 +553,16 @@
             font-size: 20px;
             font-weight: 100;
             padding: 0 3px;
+        }
+
+        .effectTouch .circle-meter {
+            transform: rotate(360deg);
+            transition: 1s ease;
+        }
+
+        .effectTouch .cardSection {
+            height: 400px;
+            transition: 1s ease;
         }
     </style>
 </head>
@@ -657,17 +670,20 @@
             document.getElementById('titleName').style.transform = "translate3d(0px, 300px, 0px)";
             flag = "0";
             document.getElementById('masterID').classList.add('openFiles');
-            var t = document.getElementById(id).classList.add('fileVisible');
+            document.getElementById(id).classList.add('fileVisible');
+            setTimeout(function() {
+                document.getElementById(id).classList.add('effectTouch');
+            }, 600)
             lastID = id;
             if (id == "nikhilProject") {
-                document.getElementById('nikhilSkill').classList.remove('fileVisible');
-                document.getElementById('nikhilContact').classList.remove('fileVisible');
+                document.getElementById('nikhilSkill').classList.remove("fileVisible", "effectTouch");
+                document.getElementById('nikhilContact').classList.remove("fileVisible", "effectTouch");
             } else if (id == "nikhilSkill") {
-                document.getElementById('nikhilProject').classList.remove('fileVisible');
-                document.getElementById('nikhilContact').classList.remove('fileVisible');
+                document.getElementById('nikhilProject').classList.remove("fileVisible", "effectTouch");
+                document.getElementById('nikhilContact').classList.remove("fileVisible", "effectTouch");
             } else if (id == "nikhilContact") {
-                document.getElementById('nikhilProject').classList.remove('fileVisible');
-                document.getElementById('nikhilSkill').classList.remove('fileVisible');
+                document.getElementById('nikhilProject').classList.remove("fileVisible", "effectTouch");
+                document.getElementById('nikhilSkill').classList.remove("fileVisible", "effectTouch");
             }
         } else if (id == "closeFile" && flag == 0) {
             flag = "1";
@@ -675,13 +691,13 @@
             document.getElementById('navbar').classList.remove('navbarColor');
             document.getElementById('titleName').style.transform = "translate3d(0px, 0px, 0px)";
             document.getElementById('masterID').classList.remove('openFiles');
+            document.getElementById(lastID).classList.remove('effectTouch');
             setTimeout(function() {
                 document.getElementById(lastID).classList.remove('fileVisible')
             }, 1000);
         }
     }
-    var skillInputs = [
-        {
+    var skillInputs = [{
             score: '50',
             label: 'skill set',
             idContainer: 'skillContentZone'
@@ -713,6 +729,18 @@
         },
         {
             label: 'Key two'
+        },
+        {
+            label: 'Key two'
+        },
+        {
+            label: 'Key two'
+        },
+        {
+            label: 'Key two'
+        },
+        {
+            label: 'Key two'
         }
     ]
     blockTiles(projectInputs);
@@ -723,8 +751,7 @@
         for (var i = 0; i < contentSource.length; i++) {
             if (contentSource == projectInputs) {
                 allBlocks +=
-                    '<div class="col-lg-3 cardStack" id="pickCard1" onclick=""><div class="projectCard"></div><div class="customLabel"><h5>' +
-                    contentSource[i].label + '</h5></div></div>'
+                    '<div class="col-lg-3 cardStack" id="pickCard1" onclick=""><div class="projectCard"></div></div>'
             } else if (contentSource == skillInputs) {
                 var meterGraphValue = 250 - ((contentSource[i].score / 100) * 250);
                 allBlocks +=
