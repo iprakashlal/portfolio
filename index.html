@@ -22,6 +22,10 @@
             font-family: Quicksand;
             src: url(quicksand.ttf);
         }
+        @font-face {
+            font-family: Open Sans;
+            src: url(opensans.ttf);
+        }
 
         * {
             font-family: Quicksand !important;
@@ -78,6 +82,7 @@
         }
 
         .nameZone {
+            font-family: Open Sans!important;
             position: relative;
             font-size: 9em;
             font-weight: bold;
@@ -86,7 +91,7 @@
             z-index: -1;
             text-align: center;
             transition: 1s;
-            background: linear-gradient(to bottom, #FFFFFF 35%, #008989 100%);
+            background: linear-gradient(to bottom, #FFFFFF 35%, #c38775 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -527,6 +532,25 @@
         .skillSection .row.container {
             margin: 0 auto;
         }
+
+        .percentZone {
+            font-size: 40px;
+            font-weight: 900;
+            color: #fff;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            text-align: center;
+            margin: 0 -10px;
+            line-height: 155px;
+        }
+
+        .percentZone:after {
+            content: "%";
+            font-size: 20px;
+            font-weight: 100;
+            padding: 0 3px;
+        }
     </style>
 </head>
 
@@ -656,11 +680,30 @@
             }, 1000);
         }
     }
-    var skillInputs = [{
+    var skillInputs = [
+        {
+            score: '50',
             label: 'skill set',
             idContainer: 'skillContentZone'
         },
         {
+            score: '20',
+            label: 'Key two'
+        },
+        {
+            score: '20',
+            label: 'Key two'
+        },
+        {
+            score: '20',
+            label: 'Key two'
+        },
+        {
+            score: '20',
+            label: 'Key two'
+        },
+        {
+            score: '20',
             label: 'Key two'
         }
     ]
@@ -683,8 +726,11 @@
                     '<div class="col-lg-3 cardStack" id="pickCard1" onclick=""><div class="projectCard"></div><div class="customLabel"><h5>' +
                     contentSource[i].label + '</h5></div></div>'
             } else if (contentSource == skillInputs) {
+                var meterGraphValue = 250 - ((contentSource[i].score / 100) * 250);
                 allBlocks +=
-                    '<div class="col-lg-4 skillStackZone"> <svg class="circle-meter" width="100%" height="160" viewbox="0, 0, 90, 95"> <circle class="back" cx="46" cy="46" r="39"></circle> <circle class="front" style="stroke-dashoffset:90;" cx="46" cy="46" r="41"></circle> </svg><div class="customLabel"><h5>' +
+                    '<div class="col-lg-4 skillStackZone"> <svg class="circle-meter" width="100%" height="160" viewbox="0, 0, 90, 92"> <circle class="back" cx="45" cy="45" r="39"></circle> <circle class="front" style="stroke-dashoffset:' +
+                    meterGraphValue + ';" cx="45" cy="45" r="41"></circle> </svg><div class="percentZone">' +
+                    contentSource[i].score + '</div><div class="customLabel"><h5>' +
                     contentSource[i].label + '</h5></div></div>'
             }
         }
