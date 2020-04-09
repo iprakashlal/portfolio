@@ -20,7 +20,7 @@
     <style>
         * {
             font-family: Verdana, Geneva, Tahoma, sans-serif !important;
-            transition: 0.5s;
+            transition: 0.4s;
         }
 
         .skyZoneImg {
@@ -118,6 +118,8 @@
             pointer-events: none;
             top: 70vh;
             transition: 1s;
+            left: 0;
+            right: 0;
         }
 
         .imageHolder {
@@ -396,21 +398,47 @@
         }
 
         .projectSection:before {
+            content: "Projects";
             left: 60px;
         }
 
         .skillSection:before {
+            content: "Skills";
             left: 270px;
         }
 
         .contactSection:before {
+            content: "Contact me";
             left: 480px;
+        }
+
+        .closeFile {
+            background: #b4acc9;
+            position: absolute;
+            top: 0px;
+            height: 60px;
+            right: 60px;
+            width: 65px;
+            border-radius: 0px 0px 10px 10px;
+            cursor: pointer;
+            pointer-events: all !important;
+            font-size: 30px;
+            text-align: center;
+            padding: 7px 0px;
+            font-weight: bold;
+            z-index: -1;
+            /* display: none; */
+        }
+        .openFiles .closeFile {
+            /* display: block; */
+            top: 50px;
+            z-index: 1;
+            transition: 1s;
         }
 
         .projectSection:before,
         .skillSection:before,
         .contactSection:before {
-            content: "";
             height: 60px;
             width: 200px;
             background: grey;
@@ -420,6 +448,10 @@
             border-radius: 10px 10px 0px 0px;
             cursor: pointer;
             pointer-events: all !important;
+            font-size: 20px;
+            text-align: center;
+            padding: 14px 0px;
+            font-weight: bold;
         }
 
         .openFiles .projectSection,
@@ -432,7 +464,27 @@
         .projectSection .container-fluid,
         .skillSection .container-fluid,
         .contactSection .container-fluid {
-            visibility: hidden;
+            display: none;
+            pointer-events: all !important;
+        }
+
+        .fileVisible .container-fluid {
+            display: block !important;
+        }
+
+        .fileVisible.projectSection::before {
+            background: #01070b;
+            color: #fff;
+        }
+
+        .fileVisible.skillSection::before {
+            background: #2bb3dd;
+            color: #fff;
+        }
+
+        .fileVisible.contactSection::before {
+            background: #00bdbd;
+            color: #fff;
         }
     </style>
 </head>
@@ -450,7 +502,7 @@
                     NIKHIL KAMATH
                 </a>
             </div>
-            <div class="collapse navbar-collapse">
+            <!-- <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link">
@@ -463,11 +515,12 @@
                         </a>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </nav>
-
+    <div class="closeFile" id="closeFile" onclick="openTab(this.id);">x</div>
     <div class="section projectSection" onclick="openTab(this.id);" id="nikhilProject">
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
@@ -583,24 +636,34 @@
         document.getElementById(id).setAttribute("onclick", "pickCard(this.id)");
         document.getElementById(id).children[0].innerHTML = "";
     }
+    var flag = "1";
 
     function openTab(id) {
-        document.getElementById('profilePic').classList.add('pictureLocate');
-        document.getElementById('navbar').classList.add('navbarColor');
-        document.getElementById('titleName').style.transform = "translate3d(0px, 300px, 0px)";
-        if (id == "nikhilProject" || id == "nikhilSkill" || id == "nikhilContact") {
+        // var flag = 1;
+        if (id == "nikhilProject" || id == "nikhilSkill" || id == "nikhilContact" || flag == 1) {
+            document.getElementById('profilePic').classList.add('pictureLocate');
+            document.getElementById('navbar').classList.add('navbarColor');
+            document.getElementById('titleName').style.transform = "translate3d(0px, 300px, 0px)";
+            flag = "0";
             document.getElementById('masterID').classList.add('openFiles');
-            document.getElementById(id).children[0].style.visibility = "visible";
+            document.getElementById(id).classList.add('fileVisible');
             if (id == "nikhilProject") {
-                document.getElementById('nikhilSkill').children[0].style.visibility = "hidden";
-                document.getElementById('nikhilContact').children[0].style.visibility = "hidden";
+                document.getElementById('nikhilSkill').classList.remove('fileVisible');
+                document.getElementById('nikhilContact').classList.remove('fileVisible');
             } else if (id == "nikhilSkill") {
-                document.getElementById('nikhilProject').children[0].style.visibility = "hidden";
-                document.getElementById('nikhilContact').children[0].style.visibility = "hidden";
+                document.getElementById('nikhilProject').classList.remove('fileVisible');
+                document.getElementById('nikhilContact').classList.remove('fileVisible');
             } else if (id == "nikhilContact") {
-                document.getElementById('nikhilProject').children[0].style.visibility = "hidden";
-                document.getElementById('nikhilSkill').children[0].style.visibility = "hidden";
+                document.getElementById('nikhilProject').classList.remove('fileVisible');
+                document.getElementById('nikhilSkill').classList.remove('fileVisible');
             }
+        } else if (id == "closeFile" && flag == 0) {
+            flag = "1";
+            document.getElementById('profilePic').classList.remove('pictureLocate');
+            document.getElementById('navbar').classList.remove('navbarColor');
+            document.getElementById('titleName').style.transform = "translate3d(0px, 0px, 0px)";
+            document.getElementById('masterID').classList.remove('openFiles');
+            // document.getElementById(id).children[0].style.display = "none";
         }
     }
 </script>
