@@ -17,6 +17,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
+    <script src="https://kit.fontawesome.com/675dda4c19.js" crossorigin="anonymous"></script>
+
     <style>
         @font-face {
             font-family: Quicksand;
@@ -29,7 +31,7 @@
         }
 
         * {
-            font-family: Quicksand !important;
+            font-family: Quicksand;
             transition: 0.4s;
         }
 
@@ -107,20 +109,20 @@
             transition: 0.5s;
         }
 
-        .navbarColor {
-            background: #262b37;
+        .navbarUpdate {
+            background: #ecf0f1;
             transition: 0.5s;
             /* transform: translate3d(0px, 40px, 0px); */
         }
 
         .navbar-brand {
             letter-spacing: 0.5px;
-            color: #fff;
+            color: #000;
             font-weight: 300;
         }
 
         a.navbar-brand:hover {
-            color: #fff;
+            color: #000;
         }
 
         .navbar-translate {
@@ -132,8 +134,8 @@
             width: 100%;
             bottom: 150px;
             z-index: 1040;
-            pointer-events: none;
-            top: 70vh;
+            /* pointer-events: none; */
+            top: 55vh;
             transition: 1s;
             left: 0;
             right: 0;
@@ -150,6 +152,7 @@
             background-size: cover;
             background-repeat: no-repeat;
             box-shadow: 0px 0px 70px #000;
+            z-index: 1;
         }
 
         .pictureLocate {
@@ -252,7 +255,7 @@
             width: 880px;
         } */
 
-        .closeIcon {
+        /* .closeIcon {
             pointer-events: none;
             position: absolute;
             right: 10px;
@@ -260,14 +263,14 @@
             font-size: 25px;
             width: 25px;
             cursor: pointer;
-        }
+        } */
 
 
 
         .cardSection {
             margin: 0 auto;
             max-width: 600px;
-            height: 270px;
+            height: 200px;
             width: 350px;
             background-clip: unset;
             border: 0;
@@ -295,9 +298,9 @@
             height: 0;
             border-left: 175px solid transparent;
             border-right: 175px solid transparent;
-            border-bottom: 50px solid #0a193e;
+            border-top: 50px solid #0a193e;
             position: absolute;
-            top: -50px;
+            bottom: -50px;
             margin: 0 auto;
             left: 0;
             right: 0;
@@ -309,9 +312,9 @@
             height: 0;
             border-left: 175px solid transparent;
             border-right: 175px solid transparent;
-            border-bottom: 60px solid #8184a9;
+            border-top: 60px solid #8184a9;
             position: absolute;
-            top: -60px;
+            bottom: -60px;
             margin: 0 auto;
             left: 0;
             right: 0;
@@ -320,9 +323,10 @@
         .cardContentZone {
             width: 100%;
             text-align: center;
-            padding: 50px 0px 0px 0px;
+            padding: 120px 0px 0px 0px;
             letter-spacing: 1px;
             height: 210px;
+            overflow: hidden;
         }
 
         .cardSection::before {
@@ -331,9 +335,9 @@
             height: 0;
             border-left: 175px solid transparent;
             border-right: 175px solid transparent;
-            border-bottom: 60px solid #f8f0ee;
+            border-top: 60px solid #f8f0ee;
             position: absolute;
-            top: -60px;
+            bottom: -60px;
             margin: 0 auto;
             left: 0;
             right: 0;
@@ -413,7 +417,7 @@
         }
 
         .closeFile {
-            background: #262b37;
+            background: #ecf0f1;
             position: absolute;
             top: 0px;
             height: 60px;
@@ -427,7 +431,7 @@
             padding: 7px 0px;
             font-weight: 400;
             z-index: -1;
-            color: #fff;
+            color: #000;
             /* display: none; */
         }
 
@@ -508,6 +512,7 @@
             stroke-dashoffset: 251;
             -webkit-transition: stroke-dashoffset 1s cubic-bezier(0.085, 0.805, 0.215, 0.935);
             transition: stroke-dashoffset 1s cubic-bezier(0.085, 0.805, 0.215, 0.935);
+            stroke-linecap: round;
         }
 
         svg.circle-meter circle.back {
@@ -564,6 +569,66 @@
             height: 400px;
             transition: 1s ease;
         }
+
+        .activeNavZone {
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+            top: 0;
+            margin: 2.5% auto;
+        }
+
+        .activeNav {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px 0;
+            background: #fff;
+            border-radius: 50px;
+            overflow: hidden;
+            height: 58px;
+        }
+
+        .activeNavZone h5,
+        .activeNavZone h4 {
+            margin: 0;
+        }
+
+        .resumeZone {
+            display: inline-flex;
+            padding: 0 5%;
+        }
+
+        .resumeZone h4 {
+            margin: -4px 10px;
+        }
+
+        .resumeZone a, .socialIconsZone a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .socialIconsZone h4 {
+            font-family: unset !important;
+            margin: 0 15px;
+        }
+
+        .socialIconsZone {
+            padding: 0 12%;
+            display: inline-flex;
+        }
+
+        .navbarUpdate .activeNav {
+            max-width: 1px;
+        }
+
+        .navbarUpdate .resumeZone,
+        .navbarUpdate .socialIconsZone {
+            visibility: hidden;
+        }
+
+        .navbarUpdate .pictureZone {
+            pointer-events: none;
+        }
     </style>
 </head>
 
@@ -572,11 +637,39 @@
         <div class="container-fluid">
             <div class="pictureZone" id="profilePic">
                 <div class="imageHolder"></div>
+                <div class="activeNavZone">
+                    <div class="activeNav">
+                        <div class="row">
+                            <div class="text-center col-lg-6 resumeZone">
+                                <h4> <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
+                                            clip-rule="evenodd" />
+                                        <path fill-rule="evenodd"
+                                            d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
+                                            clip-rule="evenodd" />
+                                        <path fill-rule="evenodd"
+                                            d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
+                                            clip-rule="evenodd" />
+                                    </svg></h4>
+                                <h5><a href="" download>Download my Resume</a></h5>
+                            </div>
+                            <div class="col-lg-6 socialIconsZone">
+                                <h4><a target="_blank" href=""><i class="fab fa-facebook-square"></i></a></h4>
+                                <h4><a target="_blank" href=""><i class="fab fa-linkedin"></i></a></h4>
+                                <h4><a target="_blank" href=""><i class="fab fa-twitter-square"></a></i></h4>
+                                <h4><a target="_blank" href=""><i class="fab fa-instagram-square"></a></i></h4>
+                                <h4><a target="_blank" href=""><i class="fab fa-whatsapp-square"></a></i></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="navbar-translate">
-                <a class="navbar-brand" href="#">
+                <span class="navbar-brand" href="#">
                     NIKHIL KAMATH
-                </a>
+                </span>
             </div>
             <!-- <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
@@ -633,11 +726,11 @@
             <div class="row">
                 <div class="container cardZone">
                     <div class="card cardSection">
-                        <div class="cardContentZone">
-                            <h6><a href="mailto:">prakashlal@live.com</a></h6>
-                        </div>
                         <div class="cardNameZone">
                             Nikhil Kamath
+                        </div>
+                        <div class="cardContentZone">
+                            <h5><a href="mailto:">prakashlal@live.com</a></h5>
                         </div>
                     </div>
                 </div>
@@ -666,14 +759,14 @@
         // var flag = 1;
         if (id == "nikhilProject" || id == "nikhilSkill" || id == "nikhilContact" || flag == 1) {
             document.getElementById('profilePic').classList.add('pictureLocate');
-            document.getElementById('navbar').classList.add('navbarColor');
+            document.getElementById('navbar').classList.add('navbarUpdate');
             document.getElementById('titleName').style.transform = "translate3d(0px, 300px, 0px)";
             flag = "0";
             document.getElementById('masterID').classList.add('openFiles');
             document.getElementById(id).classList.add('fileVisible');
             setTimeout(function() {
                 document.getElementById(id).classList.add('effectTouch');
-            }, 600)
+            }, 300)
             lastID = id;
             if (id == "nikhilProject") {
                 document.getElementById('nikhilSkill').classList.remove("fileVisible", "effectTouch");
@@ -688,7 +781,7 @@
         } else if (id == "closeFile" && flag == 0) {
             flag = "1";
             document.getElementById('profilePic').classList.remove('pictureLocate');
-            document.getElementById('navbar').classList.remove('navbarColor');
+            document.getElementById('navbar').classList.remove('navbarUpdate');
             document.getElementById('titleName').style.transform = "translate3d(0px, 0px, 0px)";
             document.getElementById('masterID').classList.remove('openFiles');
             document.getElementById(lastID).classList.remove('effectTouch');
@@ -754,8 +847,9 @@
                     '<div class="col-lg-3 cardStack" id="pickCard1" onclick=""><div class="projectCard"></div></div>'
             } else if (contentSource == skillInputs) {
                 var meterGraphValue = 250 - ((contentSource[i].score / 100) * 250);
+                document
                 allBlocks +=
-                    '<div class="col-lg-4 skillStackZone"> <svg class="circle-meter" width="100%" height="160" viewbox="0, 0, 90, 92"> <circle class="back" cx="45" cy="45" r="39"></circle> <circle class="front" style="stroke-dashoffset:' +
+                    '<div class="col-lg-4 skillStackZone"> <svg xmlns="http://www.w3.org/2000/svg" class="circle-meter" width="100%" height="160" viewbox="0, 0, 90, 92"> <circle class="back" cx="45" cy="45" r="39"></circle> <circle class="front" id="meterGraphic" style="stroke-dashoffset:' +
                     meterGraphValue + ';" cx="45" cy="45" r="41"></circle> </svg><div class="percentZone">' +
                     contentSource[i].score + '</div><div class="customLabel"><h5>' +
                     contentSource[i].label + '</h5></div></div>'
