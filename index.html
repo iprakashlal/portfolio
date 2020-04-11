@@ -146,7 +146,7 @@
             border-radius: 150px;
             background: #000;
             transition: 0.5s;
-            background-image: url(https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/p960x960/67899516_2574972325848519_3885329571758735360_o.jpg?_nc_cat=101&_nc_sid=8024bb&_nc_oc=AQlnnwyan7MrYj6mqmN2lgd2I6y8cUD0q8WF5ex07bKQvVKe77KEk7OHej-BPZLKcnU&_nc_ht=scontent-sin6-1.xx&_nc_tp=6&oh=5f605a94bfc12266d3dcc35f52644bc2&oe=5EAEBCB1);
+            background-image: url(https://media-exp1.licdn.com/dms/image/C4E03AQFtwtpr06fWgA/profile-displayphoto-shrink_200_200/0?e=1591833600&v=beta&t=FKrNBdSK-2PRgvMM18T3hHDcEe8RkTSelwzgo02U3-U);
             background-size: cover;
             background-repeat: no-repeat;
             box-shadow: 0px 0px 70px #000;
@@ -182,7 +182,14 @@
         .projectSection h5,
         .projectSection small,
         .projectSection p {
-            color: #fff !important;
+            color: #000 !important;
+        }
+
+        .projectSection p.ctaButton {
+            position: absolute;
+    bottom: 10px;
+    right: 15px;
+    margin: 0;
         }
 
         small.description {
@@ -196,6 +203,13 @@
             border-radius: 15px;
             box-shadow: 10px -10px 10px #00000024;
             background: #fbfbfb;
+            padding: 5px 10px;
+            position: relative;
+        }
+
+        .projectCard h3 {
+            border-bottom: 1px solid #c3c3c3;
+    padding-bottom: 10px;
         }
 
         .cardStack {
@@ -449,7 +463,7 @@
         }
 
         .col-lg-4.skillStackZone {
-            margin: 60px 0px;
+            margin: 60px auto;
         }
 
         .skillSection .row.container {
@@ -704,13 +718,13 @@
                     <div class="activeNav">
                         <div class="row">
                             <div class="text-center col-lg-6 resumeZone">
-                                <h5><i class="fas fa-cloud-download-alt"></i><a href="" download>Download my Resume</a>
+                                <h5><a href="Nikhil-Kamath.pdf" download><i class="fas fa-cloud-download-alt"></i>Download my Resume</a>
                                 </h5>
                             </div>
-                            <div class="col-lg-6 socialIconsZone">
-                                <h4><a target="_blank" href=""><i class="fab fa-linkedin"></i></a></h4>
-                                <h4><a target="_blank" href=""><i class="fab fa-github-square"></i></a></h4>
-                                <h4><a href="mailto:"><i class="fas fa-envelope-square"></i></a></h4>
+                            <div class="col-lg-6 socialIconsZone" id="socialContentA">
+                                <h4><a target="_blank" href="https://www.linkedin.com/in/nikhil-kamath18/"><i class="fab fa-linkedin"></i></a></h4>
+                                <h4><a target="_blank" href="https://github.com/kamathnikhil"><i class="fab fa-github-square"></i></a></h4>
+                                <h4><a href="mailto:kamath.n@northeastern.edu"><i class="fas fa-envelope-square"></i></a></h4>
                             </div>
                         </div>
                     </div>
@@ -778,11 +792,9 @@
                             Nikhil Kamath
                         </div>
                         <div class="cardContentZone">
-                            <h5><a href="mailto:">prakashlal@live.com</a></h5>
-                            <div class="col-lg-12 socialIconsZone">
-                                <h4><a target="_blank" href=""><i class="fab fa-linkedin"></i></a></h4>
-                                <h4><a target="_blank" href=""><i class="fab fa-github-square"></i></a></h4>
-                                <h4><a href="mailto:"><i class="fas fa-envelope-square"></i></a></h4>
+                            <h5><a href="mailto:kamath.n@northeastern.edu">kamath.n@northeastern.edu</a></h5>
+                            <div class="col-lg-12 socialIconsZone" id="socialContentB">
+                               
                             </div>
                         </div>
                     </div>
@@ -805,6 +817,7 @@
 </body>
 
 <script type="text/javascript">
+document.getElementById('socialContentB').innerHTML = document.getElementById('socialContentA').innerHTML;
     var flag = "1";
     var lastID;
 
@@ -846,33 +859,31 @@
         }
     }
     var skillInputs = [{
-            score: '50',
-            label: 'skill set',
+            score: '85',
+            label: 'Python / ETL',
             idContainer: 'skillContentZone'
         },
         {
-            score: '20',
-            label: 'Key two'
+            score: '70',
+            label: 'MySQL'
         },
         {
-            score: '20',
-            label: 'Key two'
+            score: '70',
+            label: 'Tableau'
         },
         {
-            score: '20',
-            label: 'Key two'
+            score: '85',
+            label: 'R Shiny'
         },
         {
-            score: '20',
-            label: 'Key two'
-        },
-        {
-            score: '20',
-            label: 'Key two'
+            score: '80',
+            label: 'Machine learning'
         }
     ]
     var projectInputs = [{
-            label: 'project set one',
+            label: 'Red Crow Crowdfunding',
+            subTitle: 'Capstone Project',
+            ctaButton: 'Read more',
             idContainer: 'projectContentZone'
         },
         {
@@ -895,23 +906,25 @@
     blockTiles(skillInputs);
 
     function blockTiles(contentSource) {
+        
         var allBlocks = "";
         for (var i = 0; i < contentSource.length; i++) {
             if (contentSource == projectInputs) {
                 allBlocks +=
-                    '<div class="col-lg-3 cardStack" id="pickCard1" onclick=""><div class="projectCard"></div></div>'
+                    '<div class="col-lg-3 cardStack" id="pickCard1" onclick=""><div class="projectCard"><h3>'+contentSource[i].label+'</h3><h5>'+contentSource[i].subTitle+'</h5><p class="ctaButton">'+contentSource[i].ctaButton+'</p></div></div>'
             } else if (contentSource == skillInputs) {
                 var meterGraphValue = 250 - ((contentSource[i].score / 100) * 250);
                 document
                 allBlocks +=
-                    '<div class="col-lg-4 col-sm-6 col-xs-12 skillStackZone"> <svg xmlns="http://www.w3.org/2000/svg" class="circle-meter" width="100%" height="160" viewbox="0, 0, 90, 92"> <circle class="back" cx="45" cy="45" r="39"></circle> <circle class="front" id="meterGraphic" style="stroke-dashoffset:' +
-                    meterGraphValue + ';" cx="45" cy="45" r="41"></circle> </svg><div class="percentZone">' +
+                    '<div class="col-lg-4 col-sm-6 col-xs-12 skillStackZone"> <svg xmlns="http://www.w3.org/2000/svg" class="circle-meter" width="100%" height="160" viewbox="0, 0, 90, 92"> <circle class="back" cx="45" cy="46" r="39"></circle> <circle class="front" id="meterGraphic" style="stroke-dashoffset:' +
+                    meterGraphValue + ';" cx="45" cy="46" r="41"></circle> </svg><div class="percentZone">' +
                     contentSource[i].score + '</div><div class="customLabel"><h5>' +
                     contentSource[i].label + '</h5></div></div>'
             }
         }
         return document.getElementById(contentSource[0].idContainer).innerHTML = allBlocks;
     }
+
 </script>
 
 </html>
