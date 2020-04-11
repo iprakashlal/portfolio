@@ -18,8 +18,11 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/675dda4c19.js" crossorigin="anonymous"></script>
-
+<!--[if lt IE 9]>
+ <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<![endif]-->
     <style>
+        
         @font-face {
             font-family: Quicksand;
             src: url('quicksand.ttf');
@@ -635,7 +638,7 @@
         }
 
         .overlayBlur {
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(5px);
             position: absolute;
             top: 0;
             bottom: 0;
@@ -1093,6 +1096,8 @@
             document.getElementById('overlayBlur').style.display = "none";
         }, 300)
     }
+
+    
 </script>
 
 </html>
