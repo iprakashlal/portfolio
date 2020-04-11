@@ -46,8 +46,8 @@
         }
 
         .page-header {
-            height: 100vh;
-            min-height: 100vh;
+            height: 100%;
+            min-height: 100%;
             max-height: 999px;
             padding: 0;
             color: #FFFFFF;
@@ -104,7 +104,6 @@
         }
 
         .navbar {
-            /* box-shadow: 0px 1px 5px #888888; */
             padding: 10px;
             transition: 0.5s;
         }
@@ -112,7 +111,6 @@
         .navbarUpdate {
             background: #ecf0f1;
             transition: 0.5s;
-            /* transform: translate3d(0px, 40px, 0px); */
         }
 
         .navbar-brand {
@@ -153,6 +151,7 @@
             background-repeat: no-repeat;
             box-shadow: 0px 0px 70px #000;
             z-index: 1;
+            cursor: pointer;
         }
 
         .pictureLocate {
@@ -192,78 +191,21 @@
         }
 
         .projectCard {
-            /* width: 300px; */
             height: 300px;
             margin: 0 auto;
             border-radius: 15px;
             box-shadow: 10px -10px 10px #00000024;
             background: #fbfbfb;
-            /* transform: rotateY(-45deg); */
         }
 
         .cardStack {
-            /* position: relative;
-            max-width: 12% !important;
-            perspective: 900px;
-            transform: translate(0px, 160px);
-            padding: 0px 85px; */
             margin: 20px 0px;
         }
 
         .projectZone {
             padding: 20px 0px 0px 0px;
-            /* width: 55%; */
             margin: 0 auto;
         }
-
-        /* .projectZone>.cardStack:nth-child(1) {
-            z-index: 4;
-        }
-
-        .projectZone>.cardStack:nth-child(2) {
-            z-index: 3;
-        }
-
-        .projectZone>.cardStack:nth-child(3) {
-            z-index: 2;
-        }
-
-        .projectZone>.cardStack:nth-child(4) {
-            z-index: 1;
-        } */
-
-        /* .cardStack:hover {
-            transform: translate(0px, 50px);
-            z-index: 10 !important;
-        }
-
-        .cardStack:hover .projectCard {
-            transform: rotateX(0deg);
-            box-shadow: 0px 0px 8px #00000024;
-            cursor: pointer;
-        } */
-
-        /* .cardDescription {
-            transform: translate(0px, -80px) !important;
-            z-index: 10 !important;
-            cursor: pointer;
-        } */
-
-        /* .cardDescription .projectCard {
-            transform: rotateX(0deg) !important;
-            box-shadow: 0px 0px 8px #00000024 !important;
-            width: 880px;
-        } */
-
-        /* .closeIcon {
-            pointer-events: none;
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            font-size: 25px;
-            width: 25px;
-            cursor: pointer;
-        } */
 
 
 
@@ -360,18 +302,7 @@
             pointer-events: none !important;
         }
 
-        /* .projectSection .container-fluid {
-            background: linear-gradient(180deg, #01070b, #162d5d);
-            height: 100%;
-            border-radius: 20px 20px 0px 0px;
-        }
 
-
-        .skillSection .container-fluid {
-            background: linear-gradient(180deg, #474d5d, #4e778e);
-            height: 100%;
-            border-radius: 20px 20px 0px 0px;
-        } */
 
         .contactSection .container-fluid,
         .skillSection .container-fluid,
@@ -386,8 +317,6 @@
             color: #ffffff29;
             left: 0;
             font-weight: 700;
-            /* border-left: 10px solid #ffffff36;
-            padding-left: 20px; */
         }
 
 
@@ -397,7 +326,6 @@
             width: 100%;
             top: 0;
             bottom: 0;
-            /* pointer-events: none; */
             overflow: hidden;
         }
 
@@ -432,11 +360,9 @@
             font-weight: 400;
             z-index: -1;
             color: #000;
-            /* display: none; */
         }
 
         .openFiles .closeFile {
-            /* display: block; */
             top: 50px;
             z-index: 1;
             transition: 1s;
@@ -450,7 +376,6 @@
             background: #fbfbfb;
             position: absolute;
             top: 0px;
-            /* left: 60px; */
             border-radius: 10px 10px 0px 0px;
             cursor: pointer;
             pointer-events: all !important;
@@ -464,7 +389,6 @@
         .openFiles .skillSection,
         .openFiles .contactSection {
             margin-top: 10vh;
-            /* pointer-events: all!important; */
         }
 
         .projectSection .container-fluid,
@@ -478,23 +402,14 @@
             display: block !important;
         }
 
-        .fileVisible.projectSection::before {
-            background: #008989;
-            color: #fff;
-            font-weight: lighter;
-        }
-
-        .fileVisible.skillSection::before {
-            background: #008989;
-            color: #fff;
-            font-weight: lighter;
-        }
-
+        .fileVisible.projectSection::before,
+        .fileVisible.skillSection::before,
         .fileVisible.contactSection::before {
             background: #008989;
             color: #fff;
             font-weight: lighter;
         }
+
 
         svg.circle-meter {
             margin: 0 auto;
@@ -595,14 +510,15 @@
 
         .resumeZone {
             display: inline-flex;
-            padding: 0 5%;
+            padding: 2px 5%;
         }
 
         .resumeZone h4 {
             margin: -4px 10px;
         }
 
-        .resumeZone a, .socialIconsZone a {
+        .resumeZone a,
+        .socialIconsZone a {
             text-decoration: none;
             color: #000;
         }
@@ -629,6 +545,16 @@
         .navbarUpdate .pictureZone {
             pointer-events: none;
         }
+
+        .navbar:hover~.heroSection,
+        .openFiles .heroSection {
+            filter: blur(5px)brightness(0.4);
+        }
+
+        .imageHolder:hover+.activeNavZone,
+        .activeNavZone:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 
@@ -636,31 +562,19 @@
     <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" id="navbar">
         <div class="container-fluid">
             <div class="pictureZone" id="profilePic">
-                <div class="imageHolder"></div>
+                <div class="imageHolder" onclick="openTab('nikhilProject');"></div>
                 <div class="activeNavZone">
                     <div class="activeNav">
                         <div class="row">
                             <div class="text-center col-lg-6 resumeZone">
-                                <h4> <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16"
-                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
-                                            clip-rule="evenodd" />
-                                        <path fill-rule="evenodd"
-                                            d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
-                                            clip-rule="evenodd" />
-                                        <path fill-rule="evenodd"
-                                            d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
-                                            clip-rule="evenodd" />
-                                    </svg></h4>
+                                <h4> <i class="fas fa-cloud-download-alt"></i>
+                                </h4>
                                 <h5><a href="" download>Download my Resume</a></h5>
                             </div>
                             <div class="col-lg-6 socialIconsZone">
-                                <h4><a target="_blank" href=""><i class="fab fa-facebook-square"></i></a></h4>
                                 <h4><a target="_blank" href=""><i class="fab fa-linkedin"></i></a></h4>
-                                <h4><a target="_blank" href=""><i class="fab fa-twitter-square"></a></i></h4>
-                                <h4><a target="_blank" href=""><i class="fab fa-instagram-square"></a></i></h4>
-                                <h4><a target="_blank" href=""><i class="fab fa-whatsapp-square"></a></i></h4>
+                                <h4><a target="_blank" href=""><i class="fab fa-github-square"></i></a></h4>
+                                <h4><a href="mailto:"><i class="fas fa-envelope-square"></i></a></h4>
                             </div>
                         </div>
                     </div>
@@ -762,8 +676,10 @@
             document.getElementById('navbar').classList.add('navbarUpdate');
             document.getElementById('titleName').style.transform = "translate3d(0px, 300px, 0px)";
             flag = "0";
-            document.getElementById('masterID').classList.add('openFiles');
             document.getElementById(id).classList.add('fileVisible');
+            setTimeout(function() {
+                document.getElementById('masterID').classList.add('openFiles');
+            }, 200)
             setTimeout(function() {
                 document.getElementById(id).classList.add('effectTouch');
             }, 300)
