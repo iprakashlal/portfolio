@@ -556,6 +556,14 @@
             transform: scale(1.1);
         }
 
+        .closeFile {
+            display: none;
+        }
+
+        .openFiles .closeFile {
+            display: block;
+        }
+
         @media (max-width: 768px) {
             .nameZone {
                 font-size: 55px;
@@ -582,6 +590,64 @@
 
             .socialIconsZone {
                 display: none;
+            }
+
+            .navbar-translate {
+                width: 100%;
+            }
+
+            .navbar-nav.mobileVersionNav {
+                display: block;
+                text-align: center;
+            }
+
+            .mobileVersionNav li.nav-item {
+                display: inline-block;
+                background: #fff;
+                border-radius: 30px;
+                width: 120px;
+                text-align: center;
+                margin: 0 10px;
+            }
+
+            .projectSection:before,
+            .skillSection:before,
+            .contactSection:before,
+            .navbar-brand {
+                display: none;
+            }
+
+            .mobileVersionNav li.nav-item p {
+                padding: 8px 0px;
+                cursor: pointer;
+            }
+
+            .pictureLocate {
+                top: 110px;
+            }
+
+
+            .pictureLocate .imageHolder {
+                height: 60px;
+                width: 60px;
+            }
+
+            .pictureLocate .activeNavZone {
+                width: 0px;
+            }
+
+            .navbarUpdate {
+                background: transparent;
+            }
+
+            .closeFile {
+                width: 60px;
+                height: 60px;
+                border-radius: 50px;
+                top: 110px !important;
+                margin: 0px auto;
+                right: 10px;
+                z-index: 10 !important;
             }
         }
     </style>
@@ -613,21 +679,19 @@
                 <span class="navbar-brand" href="#">
                     NIKHIL KAMATH
                 </span>
-            </div>
-            <!-- <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link">
-                            <p>Projects</p>
-                        </a>
+                <ul class="navbar-nav ml-auto mobileVersionNav">
+                    <li onclick="openTab('nikhilProject');" class="nav-item">
+                        <p>Projects</p>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link">
-                            <p>Contact</p>
-                        </a>
+                    <li onclick="openTab('nikhilSkill');" class="nav-item">
+                        <p>skills</p>
+                    </li>
+                    <li onclick="openTab('nikhilContact');" class="nav-item">
+                        <p>Contact</p>
                     </li>
                 </ul>
-            </div> -->
+            </div>
+
         </div>
     </nav>
     <div class="closeFile" id="closeFile" onclick="openTab(this.id);">x</div>
