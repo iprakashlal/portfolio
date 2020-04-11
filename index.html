@@ -503,18 +503,17 @@
             height: 58px;
         }
 
-        .activeNavZone h5,
-        .activeNavZone h4 {
-            margin: 0;
+        .activeNavZone h5 {
+            margin: 0 auto;
+        }
+
+        .activeNavZone h5 i {
+            padding: 0px 10px;
         }
 
         .resumeZone {
             display: inline-flex;
-            padding: 2px 5%;
-        }
-
-        .resumeZone h4 {
-            margin: -4px 10px;
+            padding: 2px 5% 0px 0px;
         }
 
         .resumeZone a,
@@ -525,7 +524,7 @@
 
         .socialIconsZone h4 {
             font-family: unset !important;
-            margin: 0 15px;
+            margin: 0 auto;
         }
 
         .socialIconsZone {
@@ -556,12 +555,18 @@
             transform: scale(1.1);
         }
 
-        .closeFile {
+        .closeFile,
+        .mobileVersionNav {
             display: none;
         }
 
         .openFiles .closeFile {
             display: block;
+        }
+
+        .cardContentZone .socialIconsZone {
+            border-top: 1px solid #bccdcd;
+            padding: 10px 2%;
         }
 
         @media (max-width: 768px) {
@@ -585,7 +590,7 @@
             }
 
             .resumeZone {
-                padding: 2px 16%;
+                padding: 2px 0px 0px 0px;
             }
 
             .socialIconsZone {
@@ -672,6 +677,20 @@
             .cardZone {
                 padding: 20px 0px 20px 0px;
             }
+
+            .fileVisible .container-fluid {
+                overflow-y: overlay;
+            }
+
+            .skillStackZone {
+                margin: 10px 0px !important;
+            }
+
+            .cardContentZone .socialIconsZone {
+                display: inline-flex;
+                border-top: 1px solid #bccdcd;
+                padding: 10px 2%;
+            }
         }
     </style>
 </head>
@@ -685,9 +704,8 @@
                     <div class="activeNav">
                         <div class="row">
                             <div class="text-center col-lg-6 resumeZone">
-                                <h4> <i class="fas fa-cloud-download-alt"></i>
-                                </h4>
-                                <h5><a href="" download>Download my Resume</a></h5>
+                                <h5><i class="fas fa-cloud-download-alt"></i><a href="" download>Download my Resume</a>
+                                </h5>
                             </div>
                             <div class="col-lg-6 socialIconsZone">
                                 <h4><a target="_blank" href=""><i class="fab fa-linkedin"></i></a></h4>
@@ -761,6 +779,11 @@
                         </div>
                         <div class="cardContentZone">
                             <h5><a href="mailto:">prakashlal@live.com</a></h5>
+                            <div class="col-lg-12 socialIconsZone">
+                                <h4><a target="_blank" href=""><i class="fab fa-linkedin"></i></a></h4>
+                                <h4><a target="_blank" href=""><i class="fab fa-github-square"></i></a></h4>
+                                <h4><a href="mailto:"><i class="fas fa-envelope-square"></i></a></h4>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -881,7 +904,7 @@
                 var meterGraphValue = 250 - ((contentSource[i].score / 100) * 250);
                 document
                 allBlocks +=
-                    '<div class="col-lg-4 skillStackZone"> <svg xmlns="http://www.w3.org/2000/svg" class="circle-meter" width="100%" height="160" viewbox="0, 0, 90, 92"> <circle class="back" cx="45" cy="45" r="39"></circle> <circle class="front" id="meterGraphic" style="stroke-dashoffset:' +
+                    '<div class="col-lg-4 col-sm-6 col-xs-12 skillStackZone"> <svg xmlns="http://www.w3.org/2000/svg" class="circle-meter" width="100%" height="160" viewbox="0, 0, 90, 92"> <circle class="back" cx="45" cy="45" r="39"></circle> <circle class="front" id="meterGraphic" style="stroke-dashoffset:' +
                     meterGraphValue + ';" cx="45" cy="45" r="41"></circle> </svg><div class="percentZone">' +
                     contentSource[i].score + '</div><div class="customLabel"><h5>' +
                     contentSource[i].label + '</h5></div></div>'
