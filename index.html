@@ -133,7 +133,7 @@
             bottom: 150px;
             z-index: 1040;
             /* pointer-events: none; */
-            top: 55vh;
+            top: 12vh;
             transition: 1s;
             left: 0;
             right: 0;
@@ -601,6 +601,7 @@
             width: 100%;
             box-shadow: -10px 10px 0px #00000024;
             cursor: unset;
+            padding: 20px 20px;
         }
 
         .minimizeCard {
@@ -643,6 +644,25 @@
             z-index: 1;
             border-radius: 20px;
             display: none;
+        }
+
+        .keyPoints p {
+            margin: 0;
+        }
+
+        .keyPoints {
+            background: #ececec;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            overflow: overlay;
+            height: 150px;
+        }
+
+        .expandCard {
+            margin: 20px 0px;
+    height: auto;
+    overflow: hidden;
         }
 
         @media(max-width: 768px) {
@@ -937,21 +957,37 @@
     var projectInputs = [{
             label: 'Red Crow Crowdfunding',
             subTitle: 'Capstone Project',
+            keyTechs: 'technogoy',
             ctaButton: 'Read more',
             idContainer: 'projectContentZone'
         },
         {
-            label: 'Key two'
+            label: 'Red Crow Crowdfunding',
+            subTitle: 'Capstone Project',
+            keyTechs: 'technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy',
+            ctaButton: 'Read more'
         },
         {
-            label: 'Key two'
+            label: 'Red Crow Crowdfunding',
+            subTitle: 'Capstone Project',
+            keyTechs: 'technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy',
+            ctaButton: 'Read more'
         },
         {
-            label: 'Key two'
+            label: 'Red Crow Crowdfunding',
+            subTitle: 'Capstone Project',
+            keyTechs: 'technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy',
+            ctaButton: 'Read more'
         }, {
-            label: 'Key two'
+            label: 'Red Crow Crowdfunding',
+            subTitle: 'Capstone Project',
+            keyTechs: 'technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy',
+            ctaButton: 'Read more'
         }, {
-            label: 'Key two'
+            label: 'Red Crow Crowdfunding',
+            subTitle: 'Capstone Project',
+            keyTechs: 'technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy',
+            ctaButton: 'Read more'
         }
     ]
     blockTiles(projectInputs);
@@ -1022,7 +1058,8 @@
                     ] +
                     '" onclick="expandCard(this.id)"><div class="projectCard"><div class="minimizeCard" id="minimizeCard" onclick="minimizeCard(\'expandCard' +
                     [i] + '\');"><i class="fas fa-times-circle"></i></div><h4>' + contentSource[i].label + '</h4><h6>' +
-                    contentSource[i].subTitle + '</h6><p class="ctaButton">' + contentSource[i].ctaButton +
+                    contentSource[i].subTitle + '</h6><div class="keyPoints col-12">' + contentSource[i].keyTechs +
+                    '</div><p class="ctaButton">' + contentSource[i].ctaButton +
                     '</p></div></div>'
             } else if (contentSource == skillInputs) {
                 var meterGraphValue = 250 - ((contentSource[i].score / 100) * 250);
