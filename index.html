@@ -1,930 +1,1044 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Portfolio</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-    <script src="https://kit.fontawesome.com/675dda4c19.js" crossorigin="anonymous"></script>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Portfolio</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/675dda4c19.js" crossorigin="anonymous"></script>
+
+        <style>
+            @font-face {
+                font-family: Quicksand;
+                src: url('quicksand.ttf');
+            }
+
+            @font-face {
+                font-family: Open Sans;
+                src: url('opensans.ttf');
+            }
+
+            * {
+                font-family: Quicksand;
+                transition: 0.4s;
+            }
+
+            .skyZoneImg {
+                background-image: url('sky-hero.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+            }
+
+            .page-header {
+                height: 100%;
+                min-height: 100%;
+                max-height: 999px;
+                padding: 0;
+                color: #FFFFFF;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .skyZone {
+                position: absolute;
+                width: 100%;
+                height: 50%;
+                z-index: -2;
+            }
+
+            .cityZone {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 25%;
+                z-index: 2;
+            }
 
-    <style>
-        @font-face {
-            font-family: Quicksand;
-            src: url(quicksand.ttf);
-        }
-
-        @font-face {
-            font-family: Open Sans;
-            src: url(opensans.ttf);
-        }
-
-        * {
-            font-family: Quicksand;
-            transition: 0.4s;
-        }
-
-        .skyZoneImg {
-            background-image: url('sky-hero.png');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-        }
-
-        .page-header {
-            height: 100%;
-            min-height: 100%;
-            max-height: 999px;
-            padding: 0;
-            color: #FFFFFF;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skyZone {
-            position: absolute;
-            width: 100%;
-            height: 50%;
-            z-index: -2;
-        }
-
-        .cityZone {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 25%;
-            z-index: 2;
-        }
-
-        .nameZone {
-            position: relative;
-        }
-
-        .cityZoneImg {
-            background-image: url('city-hero.png');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: top;
-            width: 100%;
-            height: 100%;
-            top: 25%;
-        }
-
-        .nameZone {
-            font-family: Open Sans !important;
-            position: relative;
-            font-size: 9em;
-            font-weight: bold;
-            margin: 15% auto;
-            width: max-content;
-            z-index: -1;
-            text-align: center;
-            transition: 1s;
-            background: linear-gradient(to bottom, #FFFFFF 35%, #c38775 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-item p {
-            margin: 0;
-        }
-
-        .navbar {
-            padding: 10px;
-            transition: 0.5s;
-        }
-
-        .navbarUpdate {
-            background: #ecf0f1;
-            transition: 0.5s;
-        }
-
-        .navbar-brand {
-            letter-spacing: 0.5px;
-            color: #000;
-            font-weight: 300;
-        }
-
-        a.navbar-brand:hover {
-            color: #000;
-        }
-
-        .navbar-translate {
-            width: 50%;
-        }
-
-        .pictureZone {
-            position: absolute;
-            width: 100%;
-            bottom: 150px;
-            z-index: 1040;
-            /* pointer-events: none; */
-            top: 55vh;
-            transition: 1s;
-            left: 0;
-            right: 0;
-        }
-
-        .imageHolder {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto;
-            border-radius: 150px;
-            background: #000;
-            transition: 0.5s;
-            background-image: url(https://media-exp1.licdn.com/dms/image/C4E03AQFtwtpr06fWgA/profile-displayphoto-shrink_200_200/0?e=1591833600&v=beta&t=FKrNBdSK-2PRgvMM18T3hHDcEe8RkTSelwzgo02U3-U);
-            background-size: cover;
-            background-repeat: no-repeat;
-            box-shadow: 0px 0px 70px #000;
-            z-index: 1;
-            cursor: pointer;
-        }
-
-        .pictureLocate {
-            transition: 0.5s;
-            /* position: fixed; */
-            top: 0px;
-            transition: 1s;
-        }
-
-        .pictureLocate .imageHolder {
-            transition: 0.5s;
-            height: 120px;
-            width: 120px;
-            box-shadow: none;
-            filter: grayscale(1);
-        }
-
-        .section {
-            padding: 60px 0px 0px 0px;
-            overflow: hidden;
-        }
-
-        body {
-            overflow: hidden;
-        }
-
-
-        .projectSection h5,
-        .projectSection small,
-        .projectSection p {
-            color: #000 !important;
-        }
-
-        .projectSection p.ctaButton {
-            position: absolute;
-    bottom: 10px;
-    right: 15px;
-    margin: 0;
-        }
-
-        small.description {
-            font-size: 16px;
-            letter-spacing: 2px;
-        }
-
-        .projectCard {
-            height: 300px;
-            margin: 0 auto;
-            border-radius: 15px;
-            box-shadow: 10px -10px 10px #00000024;
-            background: #fbfbfb;
-            padding: 5px 10px;
-            position: relative;
-        }
-
-        .projectCard h3 {
-            border-bottom: 1px solid #c3c3c3;
-    padding-bottom: 10px;
-        }
-
-        .cardStack {
-            margin: 20px 0px;
-        }
-
-        .projectZone {
-            padding: 20px 0px 0px 0px;
-            margin: 0 auto;
-        }
-
-
-
-        .cardSection {
-            margin: 0 auto;
-            max-width: 600px;
-            height: 200px;
-            width: 350px;
-            background-clip: unset;
-            border: 0;
-            background: #f8f0ee;
-            box-shadow: 0px 0px 10px #00000078;
-        }
-
-        .cardZone {
-            padding: 120px 0px 120px 0px;
-        }
-
-        .cardNameZone {
-            width: 100%;
-            font-size: 35px;
-            text-align: center;
-            padding: 70px 0;
-            background: #0a193e;
-            color: #fff;
-            position: relative;
-        }
-
-        .cardNameZone::after {
-            content: "";
-            width: 0;
-            height: 0;
-            border-left: 175px solid transparent;
-            border-right: 175px solid transparent;
-            border-top: 50px solid #0a193e;
-            position: absolute;
-            bottom: -50px;
-            margin: 0 auto;
-            left: 0;
-            right: 0;
-        }
-
-        .cardNameZone:before {
-            content: "";
-            width: 0;
-            height: 0;
-            border-left: 175px solid transparent;
-            border-right: 175px solid transparent;
-            border-top: 60px solid #8184a9;
-            position: absolute;
-            bottom: -60px;
-            margin: 0 auto;
-            left: 0;
-            right: 0;
-        }
-
-        .cardContentZone {
-            width: 100%;
-            text-align: center;
-            padding: 120px 0px 0px 0px;
-            letter-spacing: 1px;
-            height: 210px;
-            overflow: hidden;
-        }
-
-        .cardSection::before {
-            content: "";
-            width: 0;
-            height: 0;
-            border-left: 175px solid transparent;
-            border-right: 175px solid transparent;
-            border-top: 60px solid #f8f0ee;
-            position: absolute;
-            bottom: -60px;
-            margin: 0 auto;
-            left: 0;
-            right: 0;
-        }
-
-        .projectSection,
-        .skillSection,
-        .contactSection {
-            width: 100%;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 1;
-            transition: 1s;
-            margin-top: 94vh;
-            padding-left: 30px;
-            padding-right: 30px;
-            pointer-events: none !important;
-        }
-
-
-
-        .contactSection .container-fluid,
-        .skillSection .container-fluid,
-        .projectSection .container-fluid {
-            background: linear-gradient(180deg, #008989, #0b9292);
-            height: 100%;
-            border-radius: 20px 20px 0px 0px;
-        }
-
-        .customTitle {
-            font-size: 5em;
-            color: #ffffff29;
-            left: 0;
-            font-weight: 700;
-        }
-
-
-
-        .heroSection {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            bottom: 0;
-            overflow: hidden;
-        }
-
-        .projectSection:before {
-            content: "Projects";
-            left: 60px;
-        }
-
-        .skillSection:before {
-            content: "Skills";
-            left: 270px;
-        }
-
-        .contactSection:before {
-            content: "Contact me";
-            left: 480px;
-        }
-
-        .closeFile {
-            background: #ecf0f1;
-            position: absolute;
-            top: 0px;
-            height: 60px;
-            right: 60px;
-            width: 65px;
-            border-radius: 0px 0px 10px 10px;
-            cursor: pointer;
-            pointer-events: all !important;
-            font-size: 30px;
-            text-align: center;
-            padding: 7px 0px;
-            font-weight: 400;
-            z-index: -1;
-            color: #000;
-        }
-
-        .openFiles .closeFile {
-            top: 50px;
-            z-index: 1;
-            transition: 1s;
-        }
-
-        .projectSection:before,
-        .skillSection:before,
-        .contactSection:before {
-            height: 60px;
-            width: 200px;
-            background: #fbfbfb;
-            position: absolute;
-            top: 0px;
-            border-radius: 10px 10px 0px 0px;
-            cursor: pointer;
-            pointer-events: all !important;
-            font-size: 20px;
-            text-align: center;
-            padding: 14px 0px;
-            font-weight: light;
-        }
-
-        .openFiles .projectSection,
-        .openFiles .skillSection,
-        .openFiles .contactSection {
-            margin-top: 10vh;
-        }
-
-        .projectSection .container-fluid,
-        .skillSection .container-fluid,
-        .contactSection .container-fluid {
-            display: none;
-            pointer-events: all !important;
-        }
-
-        .fileVisible .container-fluid {
-            display: block !important;
-        }
-
-        .fileVisible.projectSection::before,
-        .fileVisible.skillSection::before,
-        .fileVisible.contactSection::before {
-            background: #008989;
-            color: #fff;
-            font-weight: lighter;
-        }
-
-
-        svg.circle-meter {
-            margin: 0 auto;
-            transition: 1s ease;
-        }
-
-        svg.circle-meter circle {
-            stroke-width: 10px;
-        }
-
-        svg.circle-meter circle.front {
-            stroke: #292f54;
-            fill: transparent;
-            stroke-dasharray: 251;
-            stroke-dashoffset: 251;
-            -webkit-transition: stroke-dashoffset 1s cubic-bezier(0.085, 0.805, 0.215, 0.935);
-            transition: stroke-dashoffset 1s cubic-bezier(0.085, 0.805, 0.215, 0.935);
-            stroke-linecap: round;
-        }
-
-        svg.circle-meter circle.back {
-            stroke: #fbfbfb;
-            fill: transparent;
-        }
-
-        .customLabel {
-            text-align: center;
-            border-top: 1px solid #0faeae;
-            padding: 5px 0px;
-            margin: 10px 0px;
-        }
-
-        .customLabel h5 {
-            font-weight: 200;
-            color: #fff;
-            letter-spacing: 0.5px;
-        }
-
-        .col-lg-4.skillStackZone {
-            margin: 60px auto;
-        }
-
-        .skillSection .row.container {
-            margin: 0 auto;
-        }
-
-        .percentZone {
-            font-size: 40px;
-            font-weight: 900;
-            color: #fff;
-            position: absolute;
-            top: 0;
-            width: 100%;
-            text-align: center;
-            margin: 0 -10px;
-            line-height: 155px;
-        }
-
-        .percentZone:after {
-            content: "%";
-            font-size: 20px;
-            font-weight: 100;
-            padding: 0 3px;
-        }
-
-        .effectTouch .circle-meter {
-            transform: rotate(360deg);
-            transition: 1s ease;
-        }
-
-        .effectTouch .cardSection {
-            height: 400px;
-            transition: 1s ease;
-        }
-
-        .activeNavZone {
-            position: absolute;
-            width: 100%;
-            z-index: -1;
-            top: 0;
-            margin: 2.5% auto;
-        }
-
-        .activeNav {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 15px 0;
-            background: #fff;
-            border-radius: 50px;
-            overflow: hidden;
-            height: 58px;
-        }
-
-        .activeNavZone h5 {
-            margin: 0 auto;
-        }
-
-        .activeNavZone h5 i {
-            padding: 0px 10px;
-        }
-
-        .resumeZone {
-            display: inline-flex;
-            padding: 2px 5% 0px 0px;
-        }
-
-        .resumeZone a,
-        .socialIconsZone a {
-            text-decoration: none;
-            color: #000;
-        }
-
-        .socialIconsZone h4 {
-            font-family: unset !important;
-            margin: 0 auto;
-        }
-
-        .socialIconsZone {
-            padding: 0 12%;
-            display: inline-flex;
-        }
-
-        .navbarUpdate .activeNav {
-            max-width: 0px;
-        }
-
-        .navbarUpdate .resumeZone,
-        .navbarUpdate .socialIconsZone {
-            visibility: hidden;
-        }
-
-        .navbarUpdate .pictureZone {
-            pointer-events: none;
-        }
-
-        .navbar:hover~.heroSection,
-        .openFiles .heroSection {
-            filter: blur(5px)brightness(0.4);
-        }
-
-        .imageHolder:hover+.activeNavZone,
-        .activeNavZone:hover {
-            transform: scale(1.1);
-        }
-
-        .closeFile,
-        .mobileVersionNav {
-            display: none;
-        }
-
-        .openFiles .closeFile {
-            display: block;
-        }
-
-        .cardContentZone .socialIconsZone {
-            border-top: 1px solid #bccdcd;
-            padding: 10px 2%;
-        }
-
-        @media (max-width: 768px) {
             .nameZone {
-                font-size: 55px;
-                margin: 63% auto;
+                position: relative;
             }
 
-            .imageHolder {
-                width: 60px;
-                height: 60px;
+            .cityZoneImg {
+                background-image: url('city-hero.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: top;
+                width: 100%;
+                height: 100%;
+                top: 25%;
             }
 
-            .activeNavZone {
+            .nameZone {
+                font-family: Open Sans !important;
+                position: relative;
+                font-size: 9em;
+                font-weight: bold;
+                margin: 15% auto;
+                width: max-content;
+                z-index: -1;
+                text-align: center;
+                transition: 1s;
+                background: linear-gradient(to bottom, #FFFFFF 35%, #c38775 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .nav-item p {
                 margin: 0;
-                top: 50px;
             }
 
-            .activeNav {
-                max-width: 80%;
+            .navbar {
+                padding: 10px;
+                transition: 0.5s;
             }
 
-            .resumeZone {
-                padding: 2px 0px 0px 0px;
+            .navbarUpdate {
+                background: #ecf0f1;
+                transition: 0.5s;
             }
 
-            .socialIconsZone {
-                display: none;
+            .navbar-brand {
+                letter-spacing: 0.5px;
+                color: #000;
+                font-weight: 300;
+            }
+
+            a.navbar-brand:hover {
+                color: #000;
             }
 
             .navbar-translate {
+                width: 50%;
+            }
+
+            .pictureZone {
+                position: absolute;
                 width: 100%;
+                bottom: 150px;
+                z-index: 1040;
+                /* pointer-events: none; */
+                top: 55vh;
+                transition: 1s;
+                left: 0;
+                right: 0;
             }
 
-            .navbar-nav.mobileVersionNav {
-                display: block;
-                text-align: center;
-            }
-
-            .mobileVersionNav li.nav-item {
-                display: inline-block;
-                background: #fff;
-                border-radius: 30px;
-                width: 120px;
-                text-align: center;
-                margin: 0 10px;
-            }
-
-            .projectSection:before,
-            .skillSection:before,
-            .contactSection:before,
-            .navbar-brand {
-                display: none;
-            }
-
-            .mobileVersionNav li.nav-item p {
-                padding: 8px 0px;
+            .imageHolder {
+                width: 150px;
+                height: 150px;
+                margin: 0 auto;
+                border-radius: 150px;
+                background: #000;
+                transition: 0.5s;
+                background-image: url('https://media-exp1.licdn.com/dms/image/C4E03AQFtwtpr06fWgA/profile-displayphoto-shrink_200_200/0?e=1591833600&v=beta&t=FKrNBdSK-2PRgvMM18T3hHDcEe8RkTSelwzgo02U3-U');
+                background-size: cover;
+                background-repeat: no-repeat;
+                box-shadow: 0 0 70px #000;
+                z-index: 1;
                 cursor: pointer;
             }
 
             .pictureLocate {
-                top: 110px;
+                transition: 0.5s;
+                /* position: fixed; */
+                top: 0;
+                transition: 1s;
             }
-
 
             .pictureLocate .imageHolder {
-                height: 60px;
-                width: 60px;
+                transition: 0.5s;
+                height: 120px;
+                width: 120px;
+                box-shadow: none;
+                filter: grayscale(1);
             }
 
-            .pictureLocate .activeNavZone {
-                width: 0px;
+            .section {
+                padding: 60px 0 0;
+                overflow: hidden;
             }
 
-            .navbarUpdate {
-                background: transparent;
+            body {
+                overflow: hidden;
             }
 
-            .closeFile {
-                width: 60px;
-                height: 60px;
-                border-radius: 50px;
-                top: 110px !important;
-                margin: 0px auto;
-                right: 10px;
-                z-index: 10 !important;
+
+            .projectSection h5,
+            .projectSection small,
+            .projectSection p {
+                color: #000 !important;
+            }
+
+            .projectSection p.ctaButton {
+                position: absolute;
+                bottom: 10px;
+                right: 15px;
+                margin: 0;
+            }
+
+            small.description {
+                font-size: 16px;
+                letter-spacing: 2px;
+            }
+
+            .projectCard {
+                height: 300px;
+                margin: 0 auto;
+                border-radius: 15px;
+                box-shadow: 10px -10px 10px #00000024;
+                background: #fbfbfb;
+                padding: 5px 10px;
+                position: relative;
+                cursor: pointer;
+            }
+
+            .projectCard h3 {
+                border-bottom: 1px solid #c3c3c3;
+                padding-bottom: 10px;
+            }
+
+            .cardStack {
+                margin: 20px 0;
+            }
+
+            .projectZone {
+                padding: 20px 0 0;
+                margin: 0 auto;
+                position: relative;
+            }
+
+
+            .cardSection {
+                margin: 0 auto;
+                max-width: 600px;
+                height: 200px;
+                width: 350px;
+                background-clip: unset;
+                border: 0;
+                background: #f8f0ee;
+                box-shadow: 0 0 10px #00000078;
+            }
+
+            .cardZone {
+                padding: 120px 0;
+            }
+
+            .cardNameZone {
+                width: 100%;
+                font-size: 35px;
+                text-align: center;
+                padding: 70px 0;
+                background: #0a193e;
+                color: #fff;
+                position: relative;
+            }
+
+            .cardNameZone::after {
+                content: "";
+                width: 0;
+                height: 0;
+                border-left: 175px solid transparent;
+                border-right: 175px solid transparent;
+                border-top: 50px solid #0a193e;
+                position: absolute;
+                bottom: -50px;
+                margin: 0 auto;
+                left: 0;
+                right: 0;
+            }
+
+            .cardNameZone:before {
+                content: "";
+                width: 0;
+                height: 0;
+                border-left: 175px solid transparent;
+                border-right: 175px solid transparent;
+                border-top: 60px solid #8184a9;
+                position: absolute;
+                bottom: -60px;
+                margin: 0 auto;
+                left: 0;
+                right: 0;
+            }
+
+            .cardContentZone {
+                width: 100%;
+                text-align: center;
+                padding: 120px 0 0;
+                letter-spacing: 1px;
+                height: 210px;
+                overflow: hidden;
+            }
+
+            .cardSection::before {
+                content: "";
+                width: 0;
+                height: 0;
+                border-left: 175px solid transparent;
+                border-right: 175px solid transparent;
+                border-top: 60px solid #f8f0ee;
+                position: absolute;
+                bottom: -60px;
+                margin: 0 auto;
+                left: 0;
+                right: 0;
+            }
+
+            .projectSection,
+            .skillSection,
+            .contactSection {
+                width: 100%;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 1;
+                transition: 1s;
+                margin-top: 94vh;
+                padding-left: 30px;
+                padding-right: 30px;
+                pointer-events: none !important;
+            }
+
+
+            .contactSection .container-fluid,
+            .skillSection .container-fluid,
+            .projectSection .container-fluid {
+                background: linear-gradient(180deg, #008989, #0b9292);
+                height: 100%;
+                border-radius: 20px 20px 0 0;
             }
 
             .customTitle {
+                font-size: 5em;
+                color: #ffffff29;
                 left: 0;
-                font-size: 3em;
-                padding-top: 30px;
-                text-align: center !important;
-                right: 0;
+                font-weight: 700;
+            }
+
+
+            .heroSection {
+                position: fixed;
+                width: 100%;
+                top: 0;
+                bottom: 0;
+                overflow: hidden;
+            }
+
+            .projectSection:before {
+                content: "Projects";
+                left: 60px;
+            }
+
+            .skillSection:before {
+                content: "Skills";
+                left: 270px;
+            }
+
+            .contactSection:before {
+                content: "Contact me";
+                left: 480px;
+            }
+
+            .closeFile {
+                background: #ecf0f1;
+                position: absolute;
+                top: 0;
+                height: 60px;
+                right: 60px;
+                width: 65px;
+                border-radius: 0 0 10px 10px;
+                cursor: pointer;
+                pointer-events: all !important;
+                font-size: 30px;
+                text-align: center;
+                padding: 7px 0;
+                font-weight: 400;
+                z-index: -1;
+                color: #000;
+            }
+
+            .openFiles .closeFile {
+                top: 50px;
+                z-index: 1;
+                transition: 1s;
+            }
+
+            .projectSection:before,
+            .skillSection:before,
+            .contactSection:before {
+                height: 60px;
+                width: 200px;
+                background: #fbfbfb;
+                position: absolute;
+                top: 0;
+                border-radius: 10px 10px 0 0;
+                cursor: pointer;
+                pointer-events: all !important;
+                font-size: 20px;
+                text-align: center;
+                padding: 14px 0;
+                font-weight: light;
             }
 
             .openFiles .projectSection,
             .openFiles .skillSection,
             .openFiles .contactSection {
-                padding-left: 10px;
-                padding-right: 10px;
+                margin-top: 10vh;
             }
 
-            .navbarUpdate .activeNav {
+            .projectSection .container-fluid,
+            .skillSection .container-fluid,
+            .contactSection .container-fluid {
                 display: none;
-            }
-
-            .cardZone {
-                padding: 20px 0px 20px 0px;
+                pointer-events: all !important;
             }
 
             .fileVisible .container-fluid {
-                overflow-y: overlay;
+                display: block !important;
+            }
+
+            .fileVisible.projectSection::before,
+            .fileVisible.skillSection::before,
+            .fileVisible.contactSection::before {
+                background: #008989;
+                color: #fff;
+                font-weight: lighter;
+            }
+
+
+            svg.circle-meter {
+                margin: 0 auto;
+                transition: 1s ease;
+            }
+
+            svg.circle-meter circle {
+                stroke-width: 10px;
+            }
+
+            svg.circle-meter circle.front {
+                stroke: #292f54;
+                fill: transparent;
+                stroke-dasharray: 251;
+                stroke-dashoffset: 251;
+                -webkit-transition: stroke-dashoffset 1s cubic-bezier(0.085, 0.805, 0.215, 0.935);
+                transition: stroke-dashoffset 1s cubic-bezier(0.085, 0.805, 0.215, 0.935);
+                stroke-linecap: round;
+            }
+
+            svg.circle-meter circle.back {
+                stroke: #fbfbfb;
+                fill: transparent;
+            }
+
+            .customLabel {
+                text-align: center;
+                border-top: 1px solid #0faeae;
+                padding: 5px 0;
+                margin: 10px 0;
+            }
+
+            .customLabel h5 {
+                font-weight: 200;
+                color: #fff;
+                letter-spacing: 0.5px;
             }
 
             .skillStackZone {
-                margin: 10px 0px !important;
+                /* margin: 20px auto; */
+                margin: 0 auto;
+                height: min-content;
+            }
+
+            .skillSection .row.container {
+                margin: 0 auto;
+            }
+
+            .percentZone {
+                font-size: 40px;
+                font-weight: 900;
+                color: #fff;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                text-align: center;
+                margin: 0 -10px;
+                line-height: 140px;
+            }
+
+            .percentZone:after {
+                content: "%";
+                font-size: 20px;
+                font-weight: 100;
+                padding: 0 3px;
+            }
+
+            .effectTouch .circle-meter {
+                transform: rotate(360deg);
+                transition: 1s ease;
+            }
+
+            .effectTouch .cardSection {
+                height: 400px;
+                transition: 1s ease;
+            }
+
+            .activeNavZone {
+                position: absolute;
+                width: 100%;
+                z-index: -1;
+                top: 0;
+                margin: 2.5% auto;
+            }
+
+            .activeNav {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 15px 0;
+                background: #fff;
+                border-radius: 50px;
+                overflow: hidden;
+                height: 58px;
+            }
+
+            .activeNavZone h5 {
+                margin: 0 auto;
+            }
+
+            .activeNavZone h5 i {
+                padding: 0 10px;
+            }
+
+            .resumeZone {
+                display: inline-flex;
+                padding: 2px 5% 0 0;
+            }
+
+            .resumeZone a,
+            .socialIconsZone a {
+                text-decoration: none;
+                color: #000;
+            }
+
+            .socialIconsZone h4 {
+                font-family: unset !important;
+                margin: 0 auto;
+            }
+
+            .socialIconsZone {
+                padding: 0 12%;
+                display: inline-flex;
+            }
+
+            .navbarUpdate .activeNav {
+                max-width: 0;
+            }
+
+            .navbarUpdate .resumeZone,
+            .navbarUpdate .socialIconsZone {
+                visibility: hidden;
+            }
+
+            .navbarUpdate .pictureZone {
+                pointer-events: none;
+            }
+
+            .navbar:hover~.heroSection,
+            .openFiles .heroSection {
+                filter: blur(5px)brightness(0.4);
+            }
+
+            .imageHolder:hover+.activeNavZone,
+            .activeNavZone:hover {
+                transform: scale(1.1);
+            }
+
+            .closeFile,
+            .mobileVersionNav {
+                display: none;
+            }
+
+            .openFiles .closeFile {
+                display: block;
             }
 
             .cardContentZone .socialIconsZone {
-                display: inline-flex;
                 border-top: 1px solid #bccdcd;
                 padding: 10px 2%;
             }
-        }
-    </style>
-</head>
 
-<body id="masterID" class="">
-    <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" id="navbar">
-        <div class="container-fluid">
-            <div class="pictureZone" id="profilePic">
-                <div class="imageHolder" onclick="openTab('nikhilProject');"></div>
-                <div class="activeNavZone">
-                    <div class="activeNav">
-                        <div class="row">
-                            <div class="text-center col-lg-6 resumeZone">
-                                <h5><a href="Nikhil-Kamath.pdf" download><i class="fas fa-cloud-download-alt"></i>Download my Resume</a>
+            .expandCard {
+                max-width: 70%;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                position: absolute;
+                z-index: 1;
+                margin: 80px auto;
+                /* overflow: hidden; */
+            }
+
+            .expandCard .projectCard {
+                height: 100%;
+                width: 100%;
+                box-shadow: -10px 10px 0px #00000024;
+                cursor: unset;
+            }
+
+            .minimizeCard {
+                display: none;
+            }
+
+            .expandCard .minimizeCard {
+                position: absolute;
+                right: 20px;
+                top: 10px;
+                font-size: 22px;
+                display: block;
+                cursor: pointer;
+            }
+
+            .subSkillZone h5 {
+                margin: 0 !important;
+            }
+
+            .rectMeter .back {
+                fill: #fff;
+            }
+
+            .rectMeter .front {
+                fill: #292f54;
+            }
+
+            .col-lg-6.subSkillZone {
+                margin: 15px 0;
+            }
+
+            .overlayBlur {
+                backdrop-filter: blur(20px);
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 1;
+                border-radius: 20px;
+                display: none;
+            }
+
+            @media(max-width: 768px) {
+                .nameZone {
+                    font-size: 55px;
+                    margin: 63% auto;
+                }
+
+                .imageHolder {
+                    width: 60px;
+                    height: 60px;
+                }
+
+                .activeNavZone {
+                    margin: 0;
+                    top: 50px;
+                }
+
+                .activeNav {
+                    max-width: 80%;
+                }
+
+                .resumeZone {
+                    padding: 2px 0 0;
+                }
+
+                .socialIconsZone {
+                    display: none;
+                }
+
+                .navbar-translate {
+                    width: 100%;
+                }
+
+                .navbar-nav.mobileVersionNav {
+                    display: block;
+                    text-align: center;
+                }
+
+                .mobileVersionNav li.nav-item {
+                    display: inline-block;
+                    background: #fff;
+                    border-radius: 30px;
+                    width: 120px;
+                    text-align: center;
+                    margin: 0 10px;
+                }
+
+                .projectSection:before,
+                .skillSection:before,
+                .contactSection:before,
+                .navbar-brand {
+                    display: none;
+                }
+
+                .mobileVersionNav li.nav-item p {
+                    padding: 8px 0;
+                    cursor: pointer;
+                }
+
+                .pictureLocate {
+                    top: 110px;
+                }
+
+
+                .pictureLocate .imageHolder {
+                    height: 60px;
+                    width: 60px;
+                }
+
+                .pictureLocate .activeNavZone {
+                    width: 0;
+                }
+
+                .navbarUpdate {
+                    background: transparent;
+                }
+
+                .closeFile {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50px;
+                    top: 110px !important;
+                    margin: 0 auto;
+                    right: 10px;
+                    z-index: 10 !important;
+                }
+
+                .customTitle {
+                    left: 0;
+                    font-size: 3em;
+                    padding-top: 30px;
+                    text-align: center !important;
+                    right: 0;
+                }
+
+                .openFiles .projectSection,
+                .openFiles .skillSection,
+                .openFiles .contactSection {
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
+
+                .navbarUpdate .activeNav {
+                    display: none;
+                }
+
+                .cardZone {
+                    padding: 20px 0;
+                }
+
+                .fileVisible .container-fluid {
+                    overflow-y: overlay;
+                }
+
+                .skillStackZone {
+                    margin: 10px 0 !important;
+                }
+
+                .cardContentZone .socialIconsZone {
+                    display: inline-flex;
+                    border-top: 1px solid #bccdcd;
+                    padding: 10px 2%;
+                }
+            }
+        </style>
+    </head>
+
+    <body id="masterID" class="">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" id="navbar">
+            <div class="container-fluid">
+                <div class="pictureZone" id="profilePic">
+                    <div class="imageHolder" onclick="openTab('nikhilProject');"></div>
+                    <div class="activeNavZone">
+                        <div class="activeNav">
+                            <div class="row">
+                                <div class="text-center col-lg-6 resumeZone">
+                                    <h5>
+                                        <a href="Nikhil-Kamath.pdf" download>
+                                            <i class="fas fa-cloud-download-alt"></i>Download my Resume</a>
+                                    </h5>
+                                </div>
+                                <div class="col-lg-6 socialIconsZone" id="socialContentA">
+                                    <h4>
+                                        <a target="_blank" href="https://www.linkedin.com/in/nikhil-kamath18/">
+                                            <i class="fab fa-linkedin"></i>
+                                        </a>
+                                    </h4>
+                                    <h4>
+                                        <a target="_blank" href="https://github.com/kamathnikhil">
+                                            <i class="fab fa-github-square"></i>
+                                        </a>
+                                    </h4>
+                                    <h4>
+                                        <a href="mailto:kamath.n@northeastern.edu">
+                                            <i class="fas fa-envelope-square"></i>
+                                        </a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-translate">
+                    <span class="navbar-brand" href="#">
+                        NIKHIL KAMATH
+                    </span>
+                    <ul class="navbar-nav ml-auto mobileVersionNav">
+                        <li onclick="openTab('nikhilProject');" class="nav-item">
+                            <p>Projects</p>
+                        </li>
+                        <li onclick="openTab('nikhilSkill');" class="nav-item">
+                            <p>skills</p>
+                        </li>
+                        <li onclick="openTab('nikhilContact');" class="nav-item">
+                            <p>Contact</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+        <div class="closeFile" id="closeFile" onclick="openTab(this.id);">x</div>
+        <div class="section projectSection" onclick="openTab(this.id);" id="nikhilProject">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="text-left title customTitle">
+                            My projects
+                        </h1>
+                    </div>
+                </div>
+                <div class="row projectZone container" id="projectContentZone"></div>
+            </div>
+        </div>
+        <div class="section skillSection" onclick="openTab(this.id);" id="nikhilSkill">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="text-left title customTitle">
+                            My skills
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="row container" id="skillContentZone"></div>
+                <div class="row container" id="subSkillContentZone"></div>
+            </div>
+        </div>
+        <div class="section contactSection" onclick="openTab(this.id);" id="nikhilContact">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="text-left title customTitle">
+                            Contact me
+                        </h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container cardZone">
+                        <div class="card cardSection">
+                            <div class="cardNameZone">
+                                Nikhil Kamath
+                            </div>
+                            <div class="cardContentZone">
+                                <h5>
+                                    <a href="mailto:kamath.n@northeastern.edu">kamath.n@northeastern.edu</a>
                                 </h5>
-                            </div>
-                            <div class="col-lg-6 socialIconsZone" id="socialContentA">
-                                <h4><a target="_blank" href="https://www.linkedin.com/in/nikhil-kamath18/"><i class="fab fa-linkedin"></i></a></h4>
-                                <h4><a target="_blank" href="https://github.com/kamathnikhil"><i class="fab fa-github-square"></i></a></h4>
-                                <h4><a href="mailto:kamath.n@northeastern.edu"><i class="fas fa-envelope-square"></i></a></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="navbar-translate">
-                <span class="navbar-brand" href="#">
-                    NIKHIL KAMATH
-                </span>
-                <ul class="navbar-nav ml-auto mobileVersionNav">
-                    <li onclick="openTab('nikhilProject');" class="nav-item">
-                        <p>Projects</p>
-                    </li>
-                    <li onclick="openTab('nikhilSkill');" class="nav-item">
-                        <p>skills</p>
-                    </li>
-                    <li onclick="openTab('nikhilContact');" class="nav-item">
-                        <p>Contact</p>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-    </nav>
-    <div class="closeFile" id="closeFile" onclick="openTab(this.id);">x</div>
-    <div class="section projectSection" onclick="openTab(this.id);" id="nikhilProject">
-
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="text-left title customTitle">
-                        My projects
-                    </h1>
-                </div>
-            </div>
-            <div class="row projectZone container" id="projectContentZone"> </div>
-        </div>
-    </div>
-    <div class="section skillSection" onclick="openTab(this.id);" id="nikhilSkill">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="text-left title customTitle">
-                        My skills
-                    </h1>
-                </div>
-            </div>
-
-            <div class="row container" id="skillContentZone"> </div>
-        </div>
-    </div>
-    <div class="section contactSection" onclick="openTab(this.id);" id="nikhilContact">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="text-left title customTitle">
-                        Contact me
-                    </h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="container cardZone">
-                    <div class="card cardSection">
-                        <div class="cardNameZone">
-                            Nikhil Kamath
-                        </div>
-                        <div class="cardContentZone">
-                            <h5><a href="mailto:kamath.n@northeastern.edu">kamath.n@northeastern.edu</a></h5>
-                            <div class="col-lg-12 socialIconsZone" id="socialContentB">
-                               
+                                <div class="col-lg-12 socialIconsZone" id="socialContentB"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="wrapper heroSection">
-        <div class="page-header clear-filter" id="heroSection">
-            <div class="skyZone">
-                <div class="skyZoneImg"> </div>
+        <div class="wrapper heroSection">
+            <div class="page-header clear-filter" id="heroSection">
+                <div class="skyZone">
+                    <div class="skyZoneImg"></div>
+                </div>
+                <div class="cityZone">
+                    <div class="cityZoneImg"></div>
+                </div>
+                <div class="nameZone" id="titleName">NIKHIL KAMATH</div>
             </div>
-            <div class="cityZone">
-                <div class="cityZoneImg"> </div>
-            </div>
-            <div class="nameZone" id="titleName">NIKHIL KAMATH</div>
         </div>
-    </div>
 
-</body>
+    </body>
 
-<script type="text/javascript">
-document.getElementById('socialContentB').innerHTML = document.getElementById('socialContentA').innerHTML;
-    var flag = "1";
-    var lastID;
+    <script type="text/javascript">
+        document.getElementById('socialContentB').innerHTML = document.getElementById('socialContentA').innerHTML;
+        var flag = "1";
+        var lastID;
 
-    function openTab(id) {
-        // var flag = 1;
-        if (id == "nikhilProject" || id == "nikhilSkill" || id == "nikhilContact" || flag == 1) {
-            document.getElementById('profilePic').classList.add('pictureLocate');
-            document.getElementById('navbar').classList.add('navbarUpdate');
-            document.getElementById('titleName').style.transform = "translate3d(0px, 300px, 0px)";
-            flag = "0";
-            document.getElementById(id).classList.add('fileVisible');
-            setTimeout(function() {
-                document.getElementById('masterID').classList.add('openFiles');
-            }, 200)
-            setTimeout(function() {
-                document.getElementById(id).classList.add('effectTouch');
+        function openTab(id) { // var flag = 1;
+            if (id == "nikhilProject" || id == "nikhilSkill" || id == "nikhilContact" || flag == 1) {
+                document.getElementById('profilePic').classList.add('pictureLocate');
+                document.getElementById('navbar').classList.add('navbarUpdate');
+                document.getElementById('titleName').style.transform = "translate3d(0px, 300px, 0px)";
+                flag = "0";
+                document.getElementById(id).classList.add('fileVisible');
+                setTimeout(function () {
+                    document.getElementById('masterID').classList.add('openFiles');
+                }, 200)
+                setTimeout(function () {
+                    document.getElementById(id).classList.add('effectTouch');
+                }, 300)
+                lastID = id;
+                if (id == "nikhilProject") {
+                    document.getElementById('nikhilSkill').classList.remove("fileVisible", "effectTouch");
+                    document.getElementById('nikhilContact').classList.remove("fileVisible", "effectTouch");
+                } else if (id == "nikhilSkill") {
+                    document.getElementById('nikhilProject').classList.remove("fileVisible", "effectTouch");
+                    document.getElementById('nikhilContact').classList.remove("fileVisible", "effectTouch");
+                } else if (id == "nikhilContact") {
+                    document.getElementById('nikhilProject').classList.remove("fileVisible", "effectTouch");
+                    document.getElementById('nikhilSkill').classList.remove("fileVisible", "effectTouch");
+                }
+            } else if (id == "closeFile" && flag == 0) {
+                flag = "1";
+                document.getElementById('profilePic').classList.remove('pictureLocate');
+                document.getElementById('navbar').classList.remove('navbarUpdate');
+                document.getElementById('titleName').style.transform = "translate3d(0px, 0px, 0px)";
+                document.getElementById('masterID').classList.remove('openFiles');
+                document.getElementById(lastID).classList.remove('effectTouch');
+                setTimeout(function () {
+                    document.getElementById(lastID).classList.remove('fileVisible')
+                }, 1000);
+            }
+        }
+        var projectInputs = [
+            {
+                label: 'Red Crow Crowdfunding',
+                subTitle: 'Capstone Project',
+                ctaButton: 'Read more',
+                idContainer: 'projectContentZone'
+            },
+            {
+                label: 'Key two'
+            },
+            {
+                label: 'Key two'
+            },
+            {
+                label: 'Key two'
+            }, {
+                label: 'Key two'
+            }, {
+                label: 'Key two'
+            }
+        ]
+        blockTiles(projectInputs);
+        var skillInputs = [
+            {
+                score: '85',
+                label: 'Python / ETL',
+                idContainer: 'skillContentZone'
+            },
+            {
+                score: '70',
+                label: 'MySQL'
+            },
+            {
+                score: '70',
+                label: 'Tableau'
+            },
+            {
+                score: '85',
+                label: 'R Shiny'
+            }, {
+                score: '80',
+                label: 'Machine learning'
+            }
+        ]
+        blockTiles(skillInputs);
+        var subSkillInputs = [
+            {
+                score: '85',
+                label: 'Big Data, Spark',
+                idContainer: 'subSkillContentZone'
+            },
+            {
+                score: '70',
+                label: 'Probability And Statistics'
+            },
+            {
+                score: '70',
+                label: 'Advance Ms Excel'
+            },
+            {
+                score: '85',
+                label: 'Google Analytics'
+            }, {
+                score: '80',
+                label: 'Aws Ec2, S3, Docker, Flask'
+            }, {
+                score: '80',
+                label: 'Web Scraping'
+            }, {
+                score: '80',
+                label: 'Trello, Git, Bitbucket'
+            }, {
+                score: '80',
+                label: 'Project/Team Management'
+            }, {
+                score: '80',
+                label: 'Agile Development'
+            }
+        ]
+        blockTiles(subSkillInputs);
+
+        function blockTiles(contentSource) {
+            var allBlocks = "";
+            for (var i = 0; i < contentSource.length; i++) {
+                if (contentSource == projectInputs) {
+                    allBlocks += '<div class="overlayBlur" id="overlayBlur"></div><div class="col-lg-3 cardStack" id="expandCard' + [i] + '" onclick="expandCard(this.id)"><div class="projectCard"><div class="minimizeCard" id="minimizeCard" onclick="minimizeCard(\'expandCard' + [i] + '\');"><i class="fas fa-times-circle"></i></div><h3>' + contentSource[i].label + '</h3><h5>' + contentSource[i].subTitle + '</h5><p class="ctaButton">' + contentSource[i].ctaButton + '</p></div></div>'
+                } else if (contentSource == skillInputs) {
+                    var meterGraphValue = 250 - ((contentSource[i].score / 100) * 250);
+                    document
+                    allBlocks += '<div class="col-lg-2 col-sm-6 col-xs-12 skillStackZone"> <svg xmlns="http://www.w3.org/2000/svg" class="circle-meter" width="100%" height="140" viewbox="0, 0, 90, 92"> <circle class="back" cx="45" cy="46" r="39"></circle> <circle class="front" id="meterGraphic" style="stroke-dashoffset:' + meterGraphValue + ';" cx="45" cy="46" r="41"></circle> </svg><div class="percentZone">' + contentSource[i].score + '</div><div class="customLabel"><h5>' + contentSource[i].label + '</h5></div></div>'
+                } else if (contentSource == subSkillInputs) {
+                    allBlocks += '<div class="col-lg-6 subSkillZone"><h5>' + contentSource[i].label + '</h5><svg class="rectMeter" height="18" viewBox="0, 0, 100%, 10" width="100%" xmlns=http://www.w3.org/2000/svg><rect class="back" height="100%" rx="2%" width="100%" x="0" y="0"></rect><rect class="front" height="100%" rx="2%" width=' + contentSource[i].score + '% x="0" y="0" id="meterGraphic"></rect></svg></div>'
+                }
+            }
+            return document.getElementById(contentSource[0].idContainer).innerHTML = allBlocks;
+        }
+
+        function expandCard(id) {
+            document.getElementById('overlayBlur').style.display = "block";
+            var selection = document.getElementById(id);
+            selection.classList.add('expandCard');
+            selection.setAttribute("onclick", "");
+        }
+
+        function minimizeCard(id) {
+            
+            var selection = document.getElementById(id);
+            selection.classList.remove('expandCard');
+            setTimeout(function () {
+                selection.setAttribute("onclick", "expandCard(this.id)");
+                document.getElementById('overlayBlur').style.display = "none";
             }, 300)
-            lastID = id;
-            if (id == "nikhilProject") {
-                document.getElementById('nikhilSkill').classList.remove("fileVisible", "effectTouch");
-                document.getElementById('nikhilContact').classList.remove("fileVisible", "effectTouch");
-            } else if (id == "nikhilSkill") {
-                document.getElementById('nikhilProject').classList.remove("fileVisible", "effectTouch");
-                document.getElementById('nikhilContact').classList.remove("fileVisible", "effectTouch");
-            } else if (id == "nikhilContact") {
-                document.getElementById('nikhilProject').classList.remove("fileVisible", "effectTouch");
-                document.getElementById('nikhilSkill').classList.remove("fileVisible", "effectTouch");
-            }
-        } else if (id == "closeFile" && flag == 0) {
-            flag = "1";
-            document.getElementById('profilePic').classList.remove('pictureLocate');
-            document.getElementById('navbar').classList.remove('navbarUpdate');
-            document.getElementById('titleName').style.transform = "translate3d(0px, 0px, 0px)";
-            document.getElementById('masterID').classList.remove('openFiles');
-            document.getElementById(lastID).classList.remove('effectTouch');
-            setTimeout(function() {
-                document.getElementById(lastID).classList.remove('fileVisible')
-            }, 1000);
         }
-    }
-    var skillInputs = [{
-            score: '85',
-            label: 'Python / ETL',
-            idContainer: 'skillContentZone'
-        },
-        {
-            score: '70',
-            label: 'MySQL'
-        },
-        {
-            score: '70',
-            label: 'Tableau'
-        },
-        {
-            score: '85',
-            label: 'R Shiny'
-        },
-        {
-            score: '80',
-            label: 'Machine learning'
-        }
-    ]
-    var projectInputs = [{
-            label: 'Red Crow Crowdfunding',
-            subTitle: 'Capstone Project',
-            ctaButton: 'Read more',
-            idContainer: 'projectContentZone'
-        },
-        {
-            label: 'Key two'
-        },
-        {
-            label: 'Key two'
-        },
-        {
-            label: 'Key two'
-        },
-        {
-            label: 'Key two'
-        },
-        {
-            label: 'Key two'
-        }
-    ]
-    blockTiles(projectInputs);
-    blockTiles(skillInputs);
-
-    function blockTiles(contentSource) {
-        
-        var allBlocks = "";
-        for (var i = 0; i < contentSource.length; i++) {
-            if (contentSource == projectInputs) {
-                allBlocks +=
-                    '<div class="col-lg-3 cardStack" id="pickCard1" onclick=""><div class="projectCard"><h3>'+contentSource[i].label+'</h3><h5>'+contentSource[i].subTitle+'</h5><p class="ctaButton">'+contentSource[i].ctaButton+'</p></div></div>'
-            } else if (contentSource == skillInputs) {
-                var meterGraphValue = 250 - ((contentSource[i].score / 100) * 250);
-                document
-                allBlocks +=
-                    '<div class="col-lg-4 col-sm-6 col-xs-12 skillStackZone"> <svg xmlns="http://www.w3.org/2000/svg" class="circle-meter" width="100%" height="160" viewbox="0, 0, 90, 92"> <circle class="back" cx="45" cy="46" r="39"></circle> <circle class="front" id="meterGraphic" style="stroke-dashoffset:' +
-                    meterGraphValue + ';" cx="45" cy="46" r="41"></circle> </svg><div class="percentZone">' +
-                    contentSource[i].score + '</div><div class="customLabel"><h5>' +
-                    contentSource[i].label + '</h5></div></div>'
-            }
-        }
-        return document.getElementById(contentSource[0].idContainer).innerHTML = allBlocks;
-    }
-
-</script>
+    </script>
 
 </html>
