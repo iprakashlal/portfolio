@@ -798,9 +798,15 @@
             }
         }
 
-        @media (max-width:420px) {
+        @media (max-width:420px) and (min-width: 360px) {
             .mobileVersionNav li.nav-item {
                 width: 90px;
+            }
+        }
+
+        @media (max-width:360px) {
+            .mobileVersionNav li.nav-item {
+                width: 75px;
             }
         }
     </style>
