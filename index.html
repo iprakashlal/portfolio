@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Portfolio</title>
+    <title>Nikhil Kamath</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -210,7 +210,8 @@
             cursor: pointer;
         }
 
-        .projectCard h4 {
+        .projectCard h4,
+        .projectCard h5 {
             border-bottom: 1px solid #c3c3c3;
             padding-bottom: 10px;
         }
@@ -326,6 +327,7 @@
             background: linear-gradient(180deg, #008989, #0b9292);
             height: 100%;
             border-radius: 20px 20px 0 0;
+            overflow: overlay;
         }
 
         .customTitle {
@@ -588,7 +590,7 @@
         }
 
         .expandCard {
-            max-width: 70%;
+            max-width: 80%;
             top: 0;
             bottom: 0;
             left: 0;
@@ -600,7 +602,7 @@
         }
 
         .expandCard .projectCard {
-            height: 100%;
+            height: auto;
             width: 100%;
             box-shadow: -10px 10px 0 #00000024;
             cursor: unset;
@@ -618,6 +620,7 @@
             font-size: 20px;
             background: #ececec;
             padding: 10px 0;
+            display: contents;
         }
 
         .minimizeCard {
@@ -701,19 +704,37 @@
 
         .projectDescription,
         .projectLink,
-        .expandCard .cardPreviewCTA {
+        .expandCard .cardPreviewCTA,
+        .keyPoints .LnDZone {
             display: none;
         }
 
-        .expandCard .projectLink {
+        .pSkills {
+            max-width: 100%;
+            flex: auto;
+            padding: 0;
+        }
+
+        .expandCard .pSkills,
+        .expandCard .LnDZone {
+            max-width: 50%;
+            padding: 0;
+        }
+
+        .expandCard .projectLink,
+        .expandCard .keyPoints .LnDZone {
             display: block;
+        }
+
+        .keyPoints li {
+            font-size: 18px;
         }
 
         .expandCard .projectDescription {
             font-size: 20px;
             display: block;
             overflow: hidden;
-            text-overflow: ellipsis;
+            /* text-overflow: ellipsis;
             -webkit-line-clamp: 4;
             -moz-line-clamp: 4;
             -ms-line-clamp: 4;
@@ -723,7 +744,7 @@
             -webkit-box-orient: vertical;
             -moz-box-orient: vertical;
             -ms-box-orient: vertical;
-            white-space: normal;
+            white-space: normal; */
         }
 
         @media(max-width: 768px) {
@@ -1070,51 +1091,86 @@
         }
     }
     var projectInputs = [{
-            label: 'Red Crow Crowdfunding',
-            subTitle: 'Capstone Project',
-            keyTechs: 'technogoy',
-            description: 'test test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test test',
-            projectLink: "#",
+            label: 'RedCrow',
+            keyTechs: '<ul><li>Flask Application, Pickle Python file</li><li>Linux System, Docker</li><li>AWS EC2 instance</li><li>Tableau</li></ul>',
+            techSkills: '<ul><li>Python (Pandas, Numpy, Sci-kit Learn)</li><li> HTML, CSS</li><li>Machine Learning (Logistic, XGBoost, SVM)</li></ul>',
+            description: 'Our objective is to help Redcrow utilize predictive models to assess the success or failure of startup. We have built a Minimum Viable Project which is a web application built in Flask and deployed with docker on AWS EC2 instance. The idea is to take as input the feature values for the startup company under assessment and predict the success probability on logistic regression model in the background. We also provide a dashboard that visualizes the data, business insights and feature importance on top of which the model was derived.',
+            projectLink: "https://github.com/kamathnikhil/RedcrowStartupAssessment_Analysis",
             ctaButton: 'Visit the project',
             idContainer: 'projectContentZone'
         },
         {
-            label: 'Red Crow Crowdfunding',
-            subTitle: 'Capstone Project',
-            keyTechs: 'technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy',
-            description: 'test test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test test',
-            projectLink: "#",
-            ctaButton: 'Read more'
+            label: 'Viacom Inc.',
+            keyTechs: '<ul><li>Data Cleaning</li><li>EDA and reporting on Tableau</li></ul>',
+            techSkills: '<ul><li>Python (Pandas, Numpy, Sci-kit Learn)</li><li>Machine Learning (Random Forest, Logistic Regression, K-mean Clustering)</li></ul>',
+            description: 'I have proposed insights that would strengthen my analysis to find a cost-effective way to increase the conversion rate through the narrowed down funnel. I have created a campaign model that would help us to target audience based on demographic data and to find most efficient Hid.',
+            projectLink: "##",
+            ctaButton: 'Visit the project',
         },
         {
-            label: 'Red Crow Crowdfunding',
-            subTitle: 'Capstone Project',
-            keyTechs: 'technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy',
-            description: 'test test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test test',
-            projectLink: "#",
-            ctaButton: 'Read more'
+            label: 'Buzzfeed Exploratory Analysis and Fake News Classification (R)',
+            keyTechs: '<ul><li>Data Cleaning and preprocessing</li><li>EDA</li></ul>',
+            techSkills: '<ul><li>R (ggplot2)</li><li>Machine Learning (random forest, naïve bayes, logistic regression)</li></ul>',
+            description: 'We aim to analyze and identify fake news using exploratory data analysis, classification, natural language processing and text mining. The data source consists of multidimensional information that not only gives signals for detecting fake news but can also be used for researches like understanding fake news propagation and fake news intervention.',
+            projectLink: "##",
+            ctaButton: 'Visit the project',
         },
         {
-            label: 'Red Crow Crowdfunding',
-            subTitle: 'Capstone Project',
-            keyTechs: 'technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy',
-            description: 'test test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test test',
-            projectLink: "#",
-            ctaButton: 'Read more'
+            label: 'Severity of Fatality Prediction through Vehicles (Matplotlib, Seaborn)',
+            keyTechs: '<ul><li>Handling missing values</li><li>Linux System, Docker</li><li>EDA in Python</li></ul>',
+            techSkills: '<ul><li>Python (pandas, numpy, scikit-learn, Matplotlib, Seaborn)</li><li>Machine Learning (Random Forest, Logistic Regression)</li></ul>',
+            description: 'Road accidents are very critical and a major problem in today’s world. WHO (World Health Organization) had recorded around 1.25 million death in USA alone by motor vehicle? It is necessary to understand the severity of the crashes and analyze the factors affecting it. This will help us to prevent some crashes in future. Can machine learning help us to predict factors affecting these crashes?',
+            projectLink: "https://github.com/kamathnikhil/fatalityvehiclepred",
+            ctaButton: 'Visit the project',
         }, {
-            label: 'Red Crow Crowdfunding',
-            subTitle: 'Capstone Project',
-            keyTechs: 'technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy',
-            description: 'test test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test test',
-            projectLink: "#",
-            ctaButton: 'Read more'
+            label: 'Instacart Market Basket Analysis (Python and Tableau)',
+            keyTechs: '<ul><li>Data cleaning and transformation</li><li>EDA</li><li>Recommendation engine</li></ul>',
+            techSkills: '<ul><li> Python (pandas, numpy, scikit-learn, Matplotlib, Seaborn)</li></ul>',
+            description: 'Collected, cleaned and converted over 3 million grocery orders from more than 200,000 Instacart users into actionable insights to develop impactful visualizations for exploratory data analysis using tableau Analyzed customer behavior over a period and based on their different events we have built a recommendation engine in Python to help a customer by recommending them which previously purchased products will be in their next order in order to felicitate cross-selling and up-selling of products',
+            projectLink: "https://github.com/kamathnikhil/Insta-Cart-EDA",
+            ctaButton: 'Visit the project',
         }, {
-            label: 'Red Crow Crowdfunding',
-            subTitle: 'Capstone Project',
-            keyTechs: 'technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy<br>technogoy',
-            description: 'test test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test testtest test test',
-            projectLink: "#",
-            ctaButton: 'Read more'
+            label: 'Bank Marketing Campaign',
+            keyTechs: '<ul><li>Data Cleaning</li><li>Data Preprocessing</li><li>One hot encoding</li><li>EDA</li></ul>',
+            techSkills: '<ul><li>R(ggplot2)</li><li>Machine Learning (Logistic and Random Forest)</li></ul>',
+            description: 'We are going to use data from a marketing campaign implemented by a major banking institution. The outcome, y, is whether a bank salesperson was able to get a client to sign up for a term deposit (and is labeled 0 for no, and 1 for yes). The objective is to utilize classification algorithms to help the bank management and sales team understand how to maximize clients signing up for a term deposit. Missing values were replaced with unknown to understand impact of classification in logistic regression Implemented prediction model with 90.7% accuracy and misclassification error with 9.47% to predict whether client will subscribe a term deposit (Y/N)',
+            projectLink: "https://github.com/kamathnikhil/Bank-Marketing-Campaign",
+            ctaButton: 'Visit the project',
+        }, {
+            label: 'Hospital Patients Readmission Analysis',
+            keyTechs: '<ul><li>Data Cleaning</li><li>Data Manipulation</li><li>One hot encoding</li><li>EDA</li><li>Predictive Modeling</li></ul>',
+            techSkills: '<ul><li>Python (pandas, numpy, scikit-learn, Matplotlib, Seaborn)</li></ul>',
+            description: 'The purpose of this project is to predict the possibility of hospital readmission of a diabetic patient. A hospital readmission is when a patient is discharged from the hospital and get readmitted in certain period of a time for a similar diagnosis. Hospital readmission for certain digit is considered to be the measure of the quality of hospitals. So to regulate this, prediction of hospital readmission will help to take appropriate measures in medication. The hospital readmission is predicted based on other factors in a dataset.',
+            projectLink: "https://github.com/kamathnikhil/Hospital_Readmission_Analysis",
+            ctaButton: 'Visit the project',
+        }, {
+            label: 'Titanic Dataset',
+            keyTechs: '<ul><li>Data Cleaning</li><li>Data Manipulation</li><li>Predictive Modeling</li><li>EDA</li></ul>',
+            techSkills: '<ul><li>Python (pandas, numpy, scikit-learn, Matplotlib, Seaborn)</li><li>Machine Learning (Decision Tree, Logistic Regression, KNN)</li></ul>',
+            description: 'training set (train.csv) test set (test.csv) The training set should be used to build your machine learning models. For the training set, we provide the outcome (also known as the “ground truth”) for each passenger. Your model will be based on “features” like passengers’ gender and class. You can also use feature engineering to create new features.<br>The test set should be used to see how well your model performs on unseen data. For the test set, we do not provide the ground truth for each passenger. It is your job to predict these outcomes. For each passenger in the test set, use the model you trained to predict whether or not they survived the sinking of the Titanic.<br>We also include gender_submission.csv, a set of predictions that assume all and only female passengers survive, as an example of what a submission file should look like',
+            projectLink: "https://github.com/kamathnikhil/Titanic_dataset",
+            ctaButton: 'Visit the project',
+        }, {
+            label: 'Forecasting USD/INR Exchange Rate',
+            keyTechs: '<ul><li>Removed Seasonality</li><li>Decomposition</li></ul>',
+            techSkills: '<ul><li>R</li><li>Machine Learning (ARIMA, GARCH)</li></ul>',
+            description: 'Forex data is a time series data therefore, we have conducted time series analysis on this data using R. Forecasted the trend of USD/INR based on rate movement from past ten years. Applying Auto-ARIMA model to get best fit model Forecast is reaffirmed with Generalized Autoregressive Conditional Heteroskedasticity (GARCH) Predict the short-term exchange rate for next 30 days and long-term exchange rate for next one year so that Indian students can plan their finances or international transfers to and from USA accordingly.',
+            projectLink: "##",
+            ctaButton: 'Visit the project',
+        }, {
+            label: 'Daily quality score snapshot of each employee',
+            keyTechs: '<ul><li>Upgraded interface and UI</li><li>Better way of retrieving historical data</li></ul>',
+            techSkills: '<ul><li>PHP, HTML, CSS</li><li>MySQL,PostgreSql</li><li>AWS RDS</li><li>CRON in PHP script</li></ul>',
+            description: 'Project description- Daily snapshot are the stats of the employees working in compliance and support team. There is certain target they need to achieve in a day and monthly quality review is carried out based on these stats. Revamped complete design by creating an Web app that resulted in 57% increase in work productivity.',
+            projectLink: "https://github.com/kamathnikhil/Bank-Marketing-Campaign",
+            ctaButton: 'Visit the project',
+        }, {
+            label: 'RC-HourGlass',
+            keyTechs: '<ul><li>Upgraded interface and UI</li><li>Better way of retrieving historical data</li></ul>',
+            techSkills: '<ul><li>PHP, HTML, CSS</li><li>MySQL</li><li>Javascript</li><li>Bootstrap framework</li></ul>',
+            description: 'Project description- Daily snapshot are the stats of the employees working in compliance and support team. There is certain target they need to achieve in a day and monthly quality review is carried out based on these stats. Revamped complete design by creating an Web app that resulted in 57% increase in work productivity.',
+            projectLink: "https://github.com/kamathnikhil/Bank-Marketing-Campaign",
+            ctaButton: 'Visit the project',
         }
     ]
     blockTiles(projectInputs);
@@ -1184,10 +1240,13 @@
                         i
                     ] +
                     '" onclick="expandCard(this.id)"><div class="projectCard"><div class="minimizeCard" id="minimizeCard" onclick="minimizeCard(\'expandCard' +
-                    [i] + '\');"><i class="fas fa-times-circle"></i></div><h4>' + contentSource[i].label + '</h4><h6>' +
-                    contentSource[i].subTitle + '</h6><div class="keyPoints col-12">' + contentSource[i].keyTechs +
-                    '</div><p class="projectDescription">' + contentSource[i].description +
-                    '</p><div class="ctaButton"><a class="projectLink" href="' + contentSource[i].projectLink + '">' +
+                    [i] + '\');"><i class="fas fa-times-circle"></i></div><h5>' + contentSource[i].label +
+                    '</h5><div class="keyPoints col-12"><div class="row"><div class="pSkills col-md-6 col-xs-12">' +
+                    contentSource[i].keyTechs +
+                    '</div><div class="col-md-6 col-xs-12 LnDZone">' + contentSource[i].techSkills +
+                    '</div></div></div><p class="projectDescription">' + contentSource[i].description +
+                    '</p><div class="ctaButton"><a class="projectLink" target="_blank" href="' + contentSource[i]
+                    .projectLink + '">' +
                     contentSource[i].ctaButton + '</a><span class="cardPreviewCTA">Read more</span></div></div></div>'
             } else if (contentSource == skillInputs) {
                 var meterGraphValue = 250 - ((contentSource[i].score / 100) * 250);
